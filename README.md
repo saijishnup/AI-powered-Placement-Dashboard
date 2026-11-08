@@ -10,7 +10,7 @@
   <a href="#run"><img src="https://img.shields.io/badge/python-3.14-f6f5f3?style=flat-square&labelColor=1c1b19" alt="Python 3.14" /></a>
   <a href="https://streamlit.io/"><img src="https://img.shields.io/badge/streamlit-1.67-e7e5e1?style=flat-square&labelColor=1c1b19" alt="Streamlit 1.67" /></a>
   <a href="#how-the-ai-stays-honest"><img src="https://img.shields.io/badge/AI-cited%20answers%20only-7c5cff?style=flat-square&labelColor=1c1b19" alt="Cited answers only" /></a>
-  <a href="#tests"><img src="https://img.shields.io/badge/tests-21%20passing-2f9e5b?style=flat-square&labelColor=1c1b19" alt="21 tests passing" /></a>
+  <a href="#tests"><img src="https://img.shields.io/badge/tests-25%20passing-2f9e5b?style=flat-square&labelColor=1c1b19" alt="25 tests passing" /></a>
   <a href="#data"><img src="https://img.shields.io/badge/data-SQLite%20%2B%20FTS5-d9d6d0?style=flat-square&labelColor=1c1b19" alt="SQLite + FTS5" /></a>
 </p>
 
@@ -73,7 +73,7 @@ Log in with any `@nitk.edu.in` address. Charts, tables and cached summaries work
 
 | Command | Does |
 |---|---|
-| `.venv\Scripts\python -m pytest -q` | 21 tests: 2-year window, FTS search, PII scrub, citation checks, model fallback, prompt injection, cache, every page renders. No network. |
+| `.venv\Scripts\python -m pytest -q` | 25 tests: 2-year window, FTS search, PII scrub, citation checks, stats block, typo company match, prompt-leak guard, model fallback, prompt injection, cache, every page renders. No network. |
 
 ## Data
 
