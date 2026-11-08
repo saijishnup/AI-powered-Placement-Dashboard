@@ -1,0 +1,13 @@
+# secrets and local env
+.env
+.venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+
+# personal build notes, planning files and reference material (kept local)
+CLAUDE.md
+memory/
+docs/
+.claude/
+*.zip

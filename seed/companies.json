@@ -1,0 +1,308 @@
+[
+  {
+    "name": "Google",
+    "tier": "Super Dream",
+    "sector": "tech",
+    "hq": "Bangalore"
+  },
+  {
+    "name": "Microsoft",
+    "tier": "Super Dream",
+    "sector": "tech",
+    "hq": "Hyderabad"
+  },
+  {
+    "name": "Amazon",
+    "tier": "Super Dream",
+    "sector": "tech",
+    "hq": "Bangalore"
+  },
+  {
+    "name": "Atlassian",
+    "tier": "Super Dream",
+    "sector": "tech",
+    "hq": "Bangalore"
+  },
+  {
+    "name": "Sprinklr",
+    "tier": "Dream",
+    "sector": "tech",
+    "hq": "Gurgaon"
+  },
+  {
+    "name": "Flipkart",
+    "tier": "Super Dream",
+    "sector": "tech",
+    "hq": "Bangalore"
+  },
+  {
+    "name": "Uber",
+    "tier": "Super Dream",
+    "sector": "tech",
+    "hq": "Bangalore"
+  },
+  {
+    "name": "Oracle",
+    "tier": "Dream",
+    "sector": "tech",
+    "hq": "Bangalore"
+  },
+  {
+    "name": "Cisco",
+    "tier": "Dream",
+    "sector": "tech",
+    "hq": "Bangalore"
+  },
+  {
+    "name": "Adobe",
+    "tier": "Super Dream",
+    "sector": "tech",
+    "hq": "Noida"
+  },
+  {
+    "name": "Salesforce",
+    "tier": "Super Dream",
+    "sector": "tech",
+    "hq": "Hyderabad"
+  },
+  {
+    "name": "Intuit",
+    "tier": "Super Dream",
+    "sector": "tech",
+    "hq": "Bangalore"
+  },
+  {
+    "name": "Walmart Global Tech",
+    "tier": "Dream",
+    "sector": "tech",
+    "hq": "Bangalore"
+  },
+  {
+    "name": "Texas Instruments",
+    "tier": "Dream",
+    "sector": "tech",
+    "hq": "Bangalore"
+  },
+  {
+    "name": "Qualcomm",
+    "tier": "Dream",
+    "sector": "tech",
+    "hq": "Hyderabad"
+  },
+  {
+    "name": "Nvidia",
+    "tier": "Super Dream",
+    "sector": "tech",
+    "hq": "Pune"
+  },
+  {
+    "name": "Boeing",
+    "tier": "Dream",
+    "sector": "tech",
+    "hq": "Bangalore"
+  },
+  {
+    "name": "Arista",
+    "tier": "Super Dream",
+    "sector": "tech",
+    "hq": "Bangalore"
+  },
+  {
+    "name": "Goldman Sachs",
+    "tier": "Super Dream",
+    "sector": "finance",
+    "hq": "Bangalore"
+  },
+  {
+    "name": "JP Morgan",
+    "tier": "Dream",
+    "sector": "finance",
+    "hq": "Mumbai"
+  },
+  {
+    "name": "Morgan Stanley",
+    "tier": "Dream",
+    "sector": "finance",
+    "hq": "Mumbai"
+  },
+  {
+    "name": "Deutsche Bank",
+    "tier": "Dream",
+    "sector": "finance",
+    "hq": "Pune"
+  },
+  {
+    "name": "Tower Research",
+    "tier": "Super Dream",
+    "sector": "finance",
+    "hq": "Gurgaon"
+  },
+  {
+    "name": "Optiver",
+    "tier": "Super Dream",
+    "sector": "finance",
+    "hq": "Mumbai"
+  },
+  {
+    "name": "American Express",
+    "tier": "Dream",
+    "sector": "finance",
+    "hq": "Gurgaon"
+  },
+  {
+    "name": "ZS Associates",
+    "tier": "Dream",
+    "sector": "analytics",
+    "hq": "Pune"
+  },
+  {
+    "name": "Mu Sigma",
+    "tier": "Normal",
+    "sector": "analytics",
+    "hq": "Bangalore"
+  },
+  {
+    "name": "Fractal",
+    "tier": "Dream",
+    "sector": "analytics",
+    "hq": "Mumbai"
+  },
+  {
+    "name": "Deloitte",
+    "tier": "Normal",
+    "sector": "consulting",
+    "hq": "Hyderabad"
+  },
+  {
+    "name": "EY",
+    "tier": "Normal",
+    "sector": "consulting",
+    "hq": "Gurgaon"
+  },
+  {
+    "name": "Accenture",
+    "tier": "Normal",
+    "sector": "consulting",
+    "hq": "Bangalore"
+  },
+  {
+    "name": "L&T",
+    "tier": "Normal",
+    "sector": "core",
+    "hq": "Mumbai"
+  },
+  {
+    "name": "Tata Steel",
+    "tier": "Dream",
+    "sector": "core",
+    "hq": "Jamshedpur"
+  },
+  {
+    "name": "JSW Steel",
+    "tier": "Normal",
+    "sector": "core",
+    "hq": "Mumbai"
+  },
+  {
+    "name": "Shell",
+    "tier": "Dream",
+    "sector": "core",
+    "hq": "Bangalore"
+  },
+  {
+    "name": "Schlumberger",
+    "tier": "Dream",
+    "sector": "core",
+    "hq": "Pune"
+  },
+  {
+    "name": "Hindustan Unilever",
+    "tier": "Dream",
+    "sector": "core",
+    "hq": "Mumbai"
+  },
+  {
+    "name": "ITC",
+    "tier": "Dream",
+    "sector": "core",
+    "hq": "Kolkata"
+  },
+  {
+    "name": "Bosch",
+    "tier": "Normal",
+    "sector": "core",
+    "hq": "Bangalore"
+  },
+  {
+    "name": "Mercedes-Benz R&D",
+    "tier": "Dream",
+    "sector": "core",
+    "hq": "Bangalore"
+  },
+  {
+    "name": "Vedanta",
+    "tier": "Normal",
+    "sector": "core",
+    "hq": "Gurgaon"
+  },
+  {
+    "name": "Coal India",
+    "tier": "Normal",
+    "sector": "core",
+    "hq": "Kolkata"
+  },
+  {
+    "name": "Hindalco",
+    "tier": "Normal",
+    "sector": "core",
+    "hq": "Mumbai"
+  },
+  {
+    "name": "TCS",
+    "tier": "Normal",
+    "sector": "service IT",
+    "hq": "Mumbai"
+  },
+  {
+    "name": "Infosys",
+    "tier": "Normal",
+    "sector": "service IT",
+    "hq": "Bangalore"
+  },
+  {
+    "name": "Wipro",
+    "tier": "Normal",
+    "sector": "service IT",
+    "hq": "Bangalore"
+  },
+  {
+    "name": "Georgia Tech",
+    "tier": "University",
+    "sector": "Higher studies",
+    "hq": "Atlanta"
+  },
+  {
+    "name": "TU Munich",
+    "tier": "University",
+    "sector": "Higher studies",
+    "hq": "Munich"
+  },
+  {
+    "name": "NUS",
+    "tier": "University",
+    "sector": "Higher studies",
+    "hq": "Singapore"
+  },
+  {
+    "name": "UIUC",
+    "tier": "University",
+    "sector": "Higher studies",
+    "hq": "Urbana-Champaign"
+  },
+  {
+    "name": "IISc",
+    "tier": "University",
+    "sector": "Higher studies",
+    "hq": "Bangalore"
+  }
+]

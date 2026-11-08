@@ -1,0 +1,7 @@
+streamlit>=1.46   # UI; 1.46+ needed for light/dark theme sections in config.toml
+plotly            # interactive charts
+pandas            # dataframes for charts/tables (streamlit dep anyway)
+openai            # client for any OpenAI-compatible endpoint (OmniRoute gateway; OpenRouter for the demo later)
+python-dotenv     # load .env
+sqlite-utils      # FTS5 index + sync triggers, inserts, upserts (lib/db.py, seed/load.py)
+pytest            # tests

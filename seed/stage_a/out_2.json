@@ -1,0 +1,402 @@
+[
+ {
+  "id": 810,
+  "selection": "Two rounds only. Round 1 was the OA on the CDC portal, around 90 mins. Section 1 was aptitude + some ML basics mcqs (bias variance, what overfitting is, stuff like that), section 2 had 2 coding qs, one easy array one medium string. Round 2 was a technical interview on teams, about 40 mins. They went through my projects line by line, esp the ML one i did in 5th sem, why i picked that model, how i split the data etc. Then OOPs basics, 4 pillars, virtual functions, difference between abstract class and interface. One small coding q on reversing words in a sentence. HR was just 2-3 mins at the end about location preference. Cutoff for the OA was i think 8 CGPA but not sure.",
+  "preparation": "Did leetcode easy-medium regularly in the summer, andrew ng course for the ML part and revised OOPs from my college notes. Spent a full weekend just going through my own projects so i could explain every line.",
+  "experience": "Chill interviewer, he laughed when i blanked on one definition. Result came the same evening.",
+  "advice": "Know ur projects properly, they ask why not what. OOPs is asked for sure even for ML roles.",
+  "tips": "Dont mug up ML formulas, understand the intuition. Also keep ur resume to 1 page and remove anything u cant explain. Mock interviews with seniors helped me a lot :)"
+ },
+ {
+  "id": 1097,
+  "selection": "Only one round for us, a long technical interview (almost 1.5 hrs) after resume shortlisting. No separate OA for my slot. Started with intro and a project, then straight into DSA: first a sliding window problem, then a tree problem (lowest common ancestor variant), then they asked me to optimise space. After that came OOPs, how would u design a parking lot with classes, which patterns u would use, SOLID principles. They also wanted me to talk through tradeoffs, not just write code. Result was announced late at night, around 1 am, so we all stayed awake.",
+  "preparation": "Striver sheet fully done by end of 5th sem, around 450 leetcode problems, and i did the head first design patterns book partially for the OOPs/design part. Weekly contests on leetcode.",
+  "experience": "Intense but fair. Interviewer gave hints when i got stuck and actually seemed interested in my approach.",
+  "advice": "They care a lot about clean code and talking while coding. Dont go silent. Write proper variable names, they notice.",
+  "tips": "If u have a good CGPA u at least get shortlisted so dont neglect academics. Sleep well before the day, i know it sounds silly but long interviews drain u."
+ },
+ {
+  "id": 1170,
+  "selection": "Five rounds in total, bit of a marathon. 1) OA with 2 coding questions + a few ML/stats mcqs, 2) technical interview 1 mostly DSA (graph bfs problem and a dp one), 3) technical interview 2 where they asked about my resume projects and then probability and stats questions like bayes theorem examples, what is p-value, 4) a case/problem round where we had to explain how we would build a recommendation model for a given scenario, 5) HR with a manager, behavioural questions, tell me about a time u failed etc. Gap between rounds 3 and 4 was like 2 days which was stressful. Total shortlist at the end was very small, i think 5 from our branch.",
+  "preparation": "Leetcode (around 300 questions), statsquest videos for the stats part, and my resume was built around 2 data projects that i knew in depth. Mock interview with a senior for the case round.",
+  "experience": "Honestly stressful, i thought i messed up round 3 but they still called me for the next one. Waiting for the result took 3 days.",
+  "advice": "Resume matters a lot here, they picked random lines and asked deep questions. Dont write libraries u only imported once.",
+  "tips": "My CGPA is not great but projects covered it. Dont lose hope if u are below the cutoff of other companies, keep applying. Luck is real in this season ngl."
+ },
+ {
+  "id": 605,
+  "selection": "5 rounds. First was a written aptitude + core test (30 mcqs on thermodynamics, fluid mech, manufacturing, and some quant). Then a group discussion on EV adoption in india, which was fun. Round 3 was a technical interview focused on core: they asked about heat exchangers, difference between laminar and turbulent flow with examples, 2 stroke vs 4 stroke, what is Reynolds number and its use, SPC basics and some process improvement stuff (Six Sigma, 5S). Round 4 was a deep dive on my BTP project, basically they cross questioned every design choice. Round 5 HR, relocation, shifts, willing to work at plant etc. The entire thing happened over one day and the final list came at night.",
+  "preparation": "Revised thermo and fluid mech from class notes and GATE style questions, a bit of manufacturing from PK Nag and Rajput. For the GD i just read the news for a week. Did a couple of mock GDs with friends.",
+  "experience": "Long day but panel was professional. The core interview was the toughest, one panelist kept pushing me on one concept until i admitted i did not know it :(",
+  "advice": "They like candidates who can speak about process and quality, not just theory. Be ready to talk about shop floor stuff.",
+  "tips": "For core companies the BTP/project matters way more than coding. Mech guys dont panic about the placement season, core companies do come, just keep ur fundamentals alive."
+ },
+ {
+  "id": 1191,
+  "selection": "Only one round for ITC internship after resume shortlist, a combined aptitude + interview day. The aptitude was a short paper, quant and verbal and some logical reasoning, around 30 mins. Then the interview: mostly resume based, they asked what I did in my 4th sem project on motor control, why EEE, why FMCG, are u fine with moving to sales/plant during the internship. Nothing technical really, maybe one question on what a transformer does. Whole thing was about 20 mins.",
+  "preparation": "Not much honestly, did some aptitude practice on indiabix for a few days and prepared my intro and why ITC.",
+  "experience": "Very relaxed. The HR person was nice and the process was quick, results next morning.",
+  "advice": "Show interest in the company's business, not just the role. Read about their brands and what GET actually does.",
+  "tips": "Apply to non-core companies also, dont limit urself. Keep CGPA decent, many of these companies have a cutoff around 7."
+ },
+ {
+  "id": 1088,
+  "selection": "Five rounds, spread over 2 days. Round 1 OA: aptitude, C output guessing, a couple of CS mcqs (OS, COA) and 2 coding qs. Round 2 was technical 1: DSA, they asked a medium dp and a linked list question. Round 3 technical 2: system design lite, like design a URL shortener, what db, how to scale, caching. Also lots of OOPs, polymorphism, deep vs shallow copy, smart pointers because they asked c++. Round 4 managerial round with discussion on a team project and how i handled conflict. Round 5 HR, standard stuff, salary expectation (i just said whatever is standard lol), joining date. Offer was announced 2 days later.",
+  "preparation": "Striver sheet + leetcode, gaurav sen videos on yt for system design, and revised OS from the galvin book. Also did 3 mock interviews, one from a senior working at Qualcomm which was super useful.",
+  "experience": "Good overall. Interviewers were senior engineers so the questions felt like real work discussions. I was nervous in round 3 because i never did design before.",
+  "advice": "They like c/c++ clarity and low level knowledge, so even AI branch students should be ready for memory stuff and OS.",
+  "tips": "Dont ignore system design even for freshers, atleast know the basics. Be honest when u dont know, they appreciate that more than bluffing."
+ },
+ {
+  "id": 1507,
+  "selection": "Pretty simple process. OA first, ~60 mins with logical reasoning, some quant, an sql query and a couple of guesstimate style questions plus 1 coding question in python. After clearing that, one interview round which was technical + HR combined. They asked me to explain one of my projects (a sentiment analysis one), then simple stats questions like mean vs median, when to use which, then some SQL joins. HR part: are u okay with client travel, bangalore posting, long working hours, why mu sigma. Took around 35 minutes.",
+  "preparation": "Practiced SQL on hackerrank, brushed up basic stats and did aptitude from RS Agarwal for 1 week. Nothing crazy.",
+  "experience": "Okay experience. The interviewer was neutral, no feedback given. We got the results in 3 days.",
+  "advice": "Be ready for guesstimates and thinking out loud. Know how to explain ur approach even if the final number is wrong.",
+  "tips": "Its a mass recruiter kind of company so dont expect extreme difficulty, but dont take lightly either. Keep some backup options in the season."
+ },
+ {
+  "id": 922,
+  "selection": "3 rounds. OA was on hackerrank, 3 questions in 2 hrs, one of them was about a classification pipeline kind of thing and writing a metric from scratch (precision/recall), other 2 were normal DSA mediums. Then 2 interviews. First one was DSA + a few ML concepts, like explain gradient descent, why do we need regularization, what is the difference between bagging and boosting. Second interview was a mix of system thinking and coding, they gave me a problem about processing a big stream of logs and asked how i would store and query them, then wanted actual code for a sliding window part. Mumbai office was mentioned for the internship. They announced 2 selects in total from the batch.",
+  "preparation": "Leetcode daily for 2 months, andrew ng + fast.ai for the ML parts, and i tried writing small ML things from scratch (linear regression, kmeans) in numpy which helped for the OA.",
+  "experience": "Went better than i thought. Second interviewer was really friendly, and told me to take my time.",
+  "advice": "Not just ML theory, DSA is the base. Know numpy-level implementation, they dont like import-only answers.",
+  "tips": "For ppl with high CGPA, dont get complacent, i saw friends with 9.5+ get rejected in OA. Practice timed contests."
+ },
+ {
+  "id": 202,
+  "selection": "This was converted from my summer internship at Shell, so the PPO route. After the internship ended there was a final review with my mentor and then an interview with 2 managers from the mining/geoscience side. Round 1 was the internship project presentation (20 mins) where they asked about my work on ore body modelling / production planning, and what i would do differently. Round 2 was an HR + manager conversation about location (Chennai base), willingness to travel to sites, and compensation. Offer letter came about 2 weeks after.",
+  "preparation": "Mostly just did my internship work properly and kept notes of every task i did. Before the final interview i revised mine planning basics, drilling and blasting and slope stability.",
+  "experience": "Internship was good, my mentor was helpful. PPO conversation was relaxed because they already knew my work.",
+  "advice": "Treat the internship like a long interview. Ask for feedback during it, dont wait till the end.",
+  "tips": "Mining core companies are fewer so do an internship in a company u would actually want to work at. CGPA was just average for me, project work saved me."
+ },
+ {
+  "id": 12,
+  "selection": "3 rounds in one day. Round 1: group discussion, topic was something like 'should india focus on manufacturing or services', 10 of us in a group, 15 mins. Round 2: technical interview with a plant person. Questions: types of gears, what is a governor, 4 stroke cycle with pv diagram, what is the difference between stress and strain, Otto vs Diesel cycle, why is steel used for shafts. Also a little on industrial engineering like TQM and JIT. Round 3: HR, asked about my family background, strengths-weaknesses, relocation to Pune, 2 year bond question was there i think. Results came by evening, i was among 4 selected.",
+  "preparation": "Revised the core subjects from lecture notes, and practised GD with friends in the hostel. Also read about ITC's different businesses cause they asked what do u know about our company.",
+  "experience": "Long wait between rounds, but the process was fair. HR was very polite.",
+  "advice": "They prefer people who are flexible about location and shifts. Say so clearly in HR.",
+  "tips": "Dont take core companies lightly, basics from 3rd-4th sem are enough but u need to explain them clearly. Wear proper formals, we got a lecture from the CDC about it :)"
+ },
+ {
+  "id": 448,
+  "selection": "Just one round, a case + resume interview that lasted ~45 min, after a short shortlisting based on resume. They started with 'walk me through ur resume', then picked my data analysis project and asked how i would explain the findings to a non technical client. Then 2 puzzles: the classic 8 balls one heavier ball problem and a bridge crossing puzzle with torches. Then a small aptitude style question, market size of something (i got 'how many cups of chai are sold in pune a day'). Interviewer was more interested in how i structured the answer than the number.",
+  "preparation": "Read a bit about case frameworks on youtube, did puzzles from GFG and a puzzle book, and practised estimation questions with a friend.",
+  "experience": "Fun round actually. I got the puzzle after a hint and the interviewer didnt mind.",
+  "advice": "Structure ur answer out loud. Say assumptions first, then the math.",
+  "tips": "Dont stress for non-CS roles, communication counts more than coding. Practice speaking in simple english."
+ },
+ {
+  "id": 49,
+  "selection": "Process was OA then 2 interviews, and my offer was via the PPO from summer internship (so 3 rounds counting the internship final interview). OA: 2 coding questions + a few aptitude mcqs. Interview 1 technical: OOPs, DBMS (normalisation, indexing, ACID), one dp problem. Interview 2 was the manager round, project discussion, what i learned in the internship and a case about handling a production bug. They converted PPOs in the first week of placement season.",
+  "preparation": "Leetcode medium regularly, DBMS from gate smashers vids, and during the internship i tried to work on real tickets so i had stories to tell.",
+  "experience": "Decent. Since i already knew the team, nervousness was low. Still the technical interview was no joke.",
+  "advice": "Good intern performance matters more than the interview itself. Keep a log of what u built.",
+  "tips": "If u get a PPO chance dont relax completely, the final rounds can still reject u. Revise basics for a week."
+ },
+ {
+  "id": 1316,
+  "selection": "Two stages. First OA conducted online, 40 mcqs with aptitude and some metallurgy basics (iron carbon diagram, heat treatment, corrosion), 45 mins. Cutoff was strict, only ~15 cleared from our branch. Then one round of combined technical + HR panel. They asked about my project on hardness testing of welded samples, what are phases in steel, why quenching, tempering, then HR things: are u ok with plant location, shift duty, living in a township. Internship location was Pune office but they said some site visits happen.",
+  "preparation": "Revised phase diagrams and heat treatment from class notes, quick revision of corrosion and mechanical testing. Aptitude from some pdf the seniors shared.",
+  "experience": "Good. The panel had a retired metallurgist type person who was kind but asked quite deep questions.",
+  "advice": "Be thorough with your own project, they will drill into it. Know fe-c diagram by heart.",
+  "tips": "Core companies are less but they do come. Start applying early and keep checking the CDC mails."
+ },
+ {
+  "id": 892,
+  "selection": "4 rounds in total over 2 days. Round 1 was a written aptitude test (quant, reasoning, general awareness of the mining and power sector). Round 2 was a GD, which most civil guys found weird for a core company lol. Round 3 was a technical interview where my panel asked civil stuff first, like soil mechanics basic, bearing capacity, then shifted to mining related things like what is opencast mining, slope failure, role of a civil engineer in a mine. Round 4 was HR, mostly about posting in remote areas, shift timings and medical fitness. Selection list came after 3 days.",
+  "preparation": "Not much specific prep, revised geotech and surveying and read about opencast vs underground methods on a couple of websites. Did aptitude papers from previous year questions.",
+  "experience": "A little disorganised, long waiting but the people were friendly and helpful. Cgpa was around 7 so i was worried till the end.",
+  "advice": "Read about coal mining basics and safety, even if ur branch is not mining. They ask general awareness a lot.",
+  "tips": "Dont lose heart if u are a Civil student with fewer core options, such PSU-ish companies are worth a try. Also keep documents ready."
+ },
+ {
+  "id": 677,
+  "selection": "Only 1 round, a written test with 2 sections: aptitude and core metallurgy. Core part had 25 mcqs on extractive metallurgy, heat treatment, powder metallurgy, material testing, a few numericals on phase diagrams. Aptitude part was easy-ish with quant and reasoning. After the test they shortlisted for an HR chat but i think that was only a formality, officially listed as 1 round. Result was declared in 1 hour (!) and 3 of us got selected.",
+  "preparation": "Revised from the class notes, solved some previous year gate questions for metallurgy, and did aptitude from a book for 2 weeks.",
+  "experience": "Quick and painless but a bit nervewracking because the test was timed tightly.",
+  "advice": "Speed matters, practice mcqs on time. Dont linger on numericals.",
+  "tips": "Pay is lower than IT but good learning in core. Do check about service agreement and location before accepting."
+ },
+ {
+  "id": 1289,
+  "selection": "3 rounds. 1) OA: cognitive + technical mcqs (90 qs, 90 min) and a pseudo code section. 2) Communication assessment, non eliminatory, they asked to read a paragraph and answer some questions with voice. 3) Interview: mostly HR with a few simple questions on my resume and why a mechanical student wants to be an analyst. I told them about my minor in data analytics and a project with excel/power bi. They asked a basic sql question too. Overall 25 min.",
+  "preparation": "Did aptitude practice on indiabix, revised basic sql and excel, made sure my resume spoke to analytics. Watched some accenture interview videos on yt.",
+  "experience": "Easy process and people were nice. Took about 5 days for results.",
+  "advice": "Be clear about why u are shifting away from core. Dont hide it, just give a reason.",
+  "tips": "Cgpa shortlisting is strict for mass recruiters, so keep above 7 atleast. Apply for everything even if u think its not ur domain."
+ },
+ {
+  "id": 552,
+  "selection": "4 rounds. Round 1 OA: 20 aptitude questions (probability, permutation), 2 coding questions medium level. Round 2 was an interview with a quant team person, he asked me probability puzzles like expected number of coin tosses to get 2 heads in a row, a dice game, and the classic monty hall. Round 3: DSA interview, find kth largest element in stream, a dp question. Round 4 was HR + team fit, discussing my 2 projects, and why i prefer quant dev roles. Whole process was over 3 days. I was on the waitlist for a day before the final list.",
+  "preparation": "A heavy dose of green book (practical guide to quantitative finance interviews, first few chapters), leetcode medium, and I did a lot of probability from class notes. Mock with seniors in my club.",
+  "experience": "Stressful because probability puzzles need a calm mind. I messed up one but recovered.",
+  "advice": "Brush up probability and expectation, dont just focus on DSA. They also care about speed of mental math.",
+  "tips": "If u are interested in quant roles start early, there are not many such roles. Dont get demotivated by one bad round."
+ },
+ {
+  "id": 560,
+  "selection": "2 rounds. First was a written test with a case-based aptitude, data interpretation and logical puzzles, 60 mins. Then one interview of ~40 min with a senior consultant. They asked me to explain my project (a traffic flow analysis one from civil), how data was collected, what insights i got. Then a puzzle: 5 pirates and 100 gold coins (i had seen it before luckily). Then some basic stats and excel. They also asked what is ur plan, why do u want to leave civil.",
+  "preparation": "Did aptitude and data interpretation from the CAT type books, puzzles from GFG, reviewed excel pivot tables and basic stats. Prepared a clean story for why i was shifting from civil.",
+  "experience": "Smooth, interviewer was patient and friendly. Case-based questions felt interesting.",
+  "advice": "Prepare a good answer for switching from core. They check if u are serious about analytics.",
+  "tips": "Cgpa 7.5 is fine for such companies. Show projects with numbers and insights, not just tools."
+ },
+ {
+  "id": 1279,
+  "selection": "5 rounds, long process. 1) OA with aptitude, logical reasoning and 1 coding qs in python (simple). 2) A puzzle based round, 4 puzzles in 20 min (i did 3). 3) Group discussion about remote work. 4) Technical interview on stats, sql and my resume. 5) HR with a partner type person, deeper chat about strengths and weaknesses and a funny question on what animal u would be. Metallurgy student in a consulting company felt out of place but they were ok with it. I was told on the 3rd day that I got through.",
+  "preparation": "RS Aggarwal for aptitude, puzzle practice every night from a puzzle book, did a short sql and python course on youtube, and i prepared an answer for why i left my core branch behind.",
+  "experience": "Tiring, with 5 rounds i almost lost interest by the 4th but i pushed on. People were nice though.",
+  "advice": "Be ready for puzzles and guesstimates. They also love structured answers.",
+  "tips": "Dont assume non-CS students arent welcome in analytics companies. Many selected were from core branches. Also dont get demotivated on rejection, i got rejected in 3 other companies before this."
+ },
+ {
+  "id": 1176,
+  "selection": "Two rounds. Round 1: a written technical test, 30 questions on electrical machines, power systems and basic circuits, along with 10 general awareness on the power sector. Round 2: a personal interview, panel of 3. Asked about my resume, which subjects i liked (i said power systems), explain transformer testing (OC and SC), difference between synchronous and induction motor, what is load flow. HR things were mixed in, like how i would handle plant postings. Whole round was 25 mins.",
+  "preparation": "Revised my EEE core subjects from the notes, especially machines and power systems. Looked at some previous years' questions shared by the seniors.",
+  "experience": "It went pretty well. Panel was friendly, the questions were all basic.",
+  "advice": "Core basics are enough. Be ready to say you are willing to move to a remote plant location.",
+  "tips": "Dont ignore core companies, if u have a decent cgpa they are a good option. Keep ur resume honest, they cross check."
+ },
+ {
+  "id": 336,
+  "selection": "I got this through the PPO from my internship, so there were 2 rounds. First a short online assessment (they make PPO candidates also give it), 30 mcqs on analog circuits, digital electronics, embedded c basics + a few aptitude. Then HR round with the manager and HR from the Kolkata team, they discussed my internship project on a motor driver PCB, my feedback from the team, joining expectations and the package. It was more like a discussion and not a typical interview.",
+  "preparation": "Revised analog and digital, op amps, number systems, state machines and some embedded c for the OA. Mostly the work done in internship was my prep.",
+  "experience": "Chill. Manager already liked my work so HR was formality.",
+  "advice": "Do the internship seriously. Document ur work and ask for a feedback mail.",
+  "tips": "CGPA of 8 was fine here. Dont freak out about not getting a PPO in a big name, a good core PPO is better than a gamble :)"
+ },
+ {
+  "id": 661,
+  "selection": "2 rounds only. Round 1 was a combined aptitude and core test, one hour, with a section on geology/earth science basics plus civil (soil mechanics, fluid mechanics, strength of materials). Since the role was Mining Engineer for a civil student, they gave a few general engineering qs on drilling and well basics. Round 2 was an HR + technical panel, they asked why Schlumberger, willing to work at remote rigs, field postings for long periods, what would u do if safety rules conflicted with schedule, etc. Result after 2 days.",
+  "preparation": "Revised civil core subjects, watched yt videos on drilling basics and oilfield terms. Quick aptitude revision from a pdf.",
+  "experience": "Decent but a bit tough, i was worried about the field job part.",
+  "advice": "Know about the company's work and be ready for field postings. Safety questions are common.",
+  "tips": "Dont assume only CSE people get good offers. Core fields have decent packages but u should be ok with the working conditions."
+ },
+ {
+  "id": 228,
+  "selection": "5 rounds for the digital profile (ECE student, i know, weird). 1) TCS NQT, aptitude + reasoning + verbal 2) Advanced coding section on 2 problems, one simple string manipulation and one medium array problem. 3) Technical interview: OOPs concepts (inheritance, polymorphism, encapsulation), java vs c++, a simple program on pattern printing, my project on a sensor-based project. 4) Managerial interview, questions on projects, teamwork, how i would handle a conflict. 5) HR round, salary, relocation, bond. Offer letter took around 2 weeks. Note that i had done a PPO from internship earlier which reduced some of the stress.",
+  "preparation": "Prepared on prepinsta and indiabix for aptitude, c/c++ basics and OOPs from some yt playlist, and 100 or so easy coding problems on leetcode. Did a mock with a friend for the interview.",
+  "experience": "Okay overall, nothing special. Technical was easy but the HR round was a long wait.",
+  "advice": "Be thorough with basic programming and OOPs. They love asking about the project.",
+  "tips": "Do not take TCS lightly just because its mass recruiter, a lot of people fail the aptitude section due to speed. Practice timed tests."
+ },
+ {
+  "id": 683,
+  "selection": "For the MS admission, there were 4 stages for me. 1) uni-assist / APS certificate (mandatory for Indian students) and the online application with transcripts, 2) document and eligibility evaluation, they check ur ECTS credit match with the course (i had to explain a few civil courses were relevant to mechanical), 3) a video interview with 2 profs from the department, 20 mins, about my motivation, BTP project, and why switch from civil to mechanical, 4) final admission letter and then visa. Final admit came in around 8 weeks after interview. I had IELTS 7.0 and GRE not required for this program.",
+  "preparation": "Wrote my SOP from scratch with 4 drafts reviewed by seniors who are already in Germany. Took IELTS twice. Got a referral/connect from a senior who spoke about me to a prof for the interview. Prepared answers about my project and why TUM.",
+  "experience": "Stressful because of paperwork and waiting, but interview was friendly. Visa took another 3-4 weeks.",
+  "advice": "Start APS and documents early, they take months. Keep ECTS mapping ready before applying.",
+  "tips": "CGPA of 7 can work if SOP and motivation are strong. Talk to NITK alumni in Munich, mine helped a lot. Dont wait till deadlines, apply 2 months early."
+ },
+ {
+  "id": 257,
+  "selection": "4 rounds, got the offer through the PPO from internship at ZS. Round 1 was the online assessment: aptitude, 2 case style questions with data tables, and 15 mins of puzzles (this part was my nightmare). Round 2 interview with a consultant: asked about my past project and then a case, how to increase revenue of a product, structured thinking. Round 3: another puzzle-heavy interview. Round 4: partner round / HR to finalise PPO. Result in 2 days. I think my internship feedback mattered more than the rounds.",
+  "preparation": "Case in point type framework practice, a lot of puzzle practice from GFG, and the internship itself taught me lots of excel stuff. Also took mock cases from seniors.",
+  "experience": "Good, they are very structured. Rounds were not too hard once you get the hang of cases.",
+  "advice": "Practice cases out loud with someone. Dont memorise frameworks, tailor them.",
+  "tips": "Being a Civil student in a business role is possible. Get a good internship first and PPO becomes easier."
+ },
+ {
+  "id": 1100,
+  "selection": "5 rounds, had a PPO so these were the PPO conversion rounds. 1) OA with aptitude plus 20 chemical engineering core mcqs, 2) core technical interview: mass transfer (distillation, absorption), heat exchanger design, fluid mechanics, pumps, process control (PID), 3) a technical round about my internship project at a smelter plant, process flow and energy balance, 4) a managerial round with a plant head, situational questions about safety incidents and what u would do, 5) HR, relocation, bond, salary. Total time ~ 4 hrs on one day. Offer announced after a week. I was in a bit of doubt about the HR round, as they asked about 2 backlogs of mine.",
+  "preparation": "Revised mass transfer and heat transfer from my class notes, process control, and went through my internship report. Also prepared for HR questions about my gap in cgpa semesters.",
+  "experience": "Long day, but interviewers were quite polite. The plant head was serious and asked tough questions on safety.",
+  "advice": "Be very sure about the process of the unit u worked in during internship. Safety culture is huge here.",
+  "tips": "Chemical students: dont lose hope seeing IT placements, there are core offers too. Keep ur BTP/internship strong and be ready to relocate."
+ },
+ {
+  "id": 1120,
+  "selection": "4 rounds. First a technical aptitude, 40 mcqs on mining engineering basics: rock mechanics, mine ventilation, drilling and blasting, surveying. Then a technical interview where i was asked about mine ventilation (natural vs mechanical, what is a booster fan, how do u calculate airflow needed for a development heading), then slope stability and blast design. Third was a group task / case about mine planning. Fourth was HR, mostly about shift and place of posting and the offer's conversion from my internship (PPO). Design Engineer in Mumbai office, which was kind of surprise since mining people usually are at sites.",
+  "preparation": "Revised from my mine ventilation and rock mechanics notes, did some numericals on airflow, and discussed with seniors who were already working in the industry.",
+  "experience": "The panel was friendly but strict about basics. I messed up one question on gas emission limits and that hurt a little.",
+  "advice": "Basic concepts like mine ventilation and blasting are repeated so know them in detail.",
+  "tips": "CGPA was 7.1 for me and it was still ok. Core hiring depends on internship performance and how u talk about it. Dont ignore safety regulations."
+ },
+ {
+  "id": 881,
+  "selection": "5 rounds, quite long: 1) online aptitude test (quant, logical, English) 2) a written technical test on mining basics 3) technical interview, rock mechanics, mine surveying, mine ventilation and some questions on explosives and mine safety 4) a GD, topic was about automation in mines 5) HR with a panel, they asked about my hostel life, hobbies, whether I am ready to work at a site, strengths and weaknesses. The whole thing took 2 days with breaks. Plant Engineer internship at the Mumbai office but with some site visits.",
+  "preparation": "Aptitude practice for 1-2 weeks, revised mining subjects from notes, mostly surveying and ventilation, and read about Tata Steel's mining operations.",
+  "experience": "Good. I liked the GD, as i was comfortable speaking. Waiting time for the results was too long though.",
+  "advice": "Know the company's mines and operations and be ready for site life.",
+  "tips": "Dont worry about only a few core companies visiting, seniors say prepare early and stay in touch with the dept. Learn to speak confidently, it matters in every round."
+ },
+ {
+  "id": 46,
+  "selection": "Five rounds for Arista SDE. OA first: 3 coding questions in 90 mins (one easy, two medium-hard), plus some networking and OS mcqs, i solved 2.5 of them. Then Interview 1: DSA, a trie problem and merge intervals, Interview 2: OS and networking heavy (TCP handshake, what happens when u type a url in browser, process vs thread, deadlock) and a bit of c programming, pointer questions. Interview 3: system design, design a rate limiter, what data structures, how to make it distributed. Interview 4 was HR + hiring manager, discussion on my past internship and team preferences. Whole thing took 2 days, i was exhausted. Results came the next night.",
+  "preparation": "Striver sheet twice, around 500 leetcode problems, computer networks from Kurose and Ross (just the main chapters) and the OS book. Had mocks with seniors at Arista which really helped.",
+  "experience": "Hard but fun. Interviewers were deep technical people who liked discussing why things work. I messed up the system design but got hints.",
+  "advice": "Know networking and OS in real depth, not just theory points. Also write C code comfortably.",
+  "tips": "Package is great but so is the competition. Dont get demotivated by OA failures in other companies, they have different styles. Sleep and eat before the long days."
+ },
+ {
+  "id": 1344,
+  "selection": "Quite a long process, 5 rounds. Round 1 was an aptitude test online. Round 2 was a technical written test on core metallurgy topics, extraction, heat treatment, phase diagrams, steel making (BOF, EAF) etc. Round 3 technical interview about my project on corrosion behaviour of coated steels. Round 4 GD, and Round 5 HR interview. Overall they spent 2 days and rolled out the shortlist after each round. The final list was out the same night with 6 students from the department. Kolkata office GET intern.",
+  "preparation": "Revised steel making and heat treatment, the iron carbon diagram of course, and my own project. Did previous year aptitude papers.",
+  "experience": "Pretty good. They put effort into organisation, snacks too haha. Seniors on the panel were friendly.",
+  "advice": "They really appreciate honesty about what u dont know. Be updated on steel industry news.",
+  "tips": "Metallurgy folks, do attend the pre-placement talks from steel companies, it helps in the HR round. CGPA matters for shortlisting in core."
+ },
+ {
+  "id": 959,
+  "selection": "This was through my internship PPO route, 4 rounds in total. Aptitude test first (quant, reasoning, some metallurgy mcqs), then a technical interview about my internship project on heat treatment optimisation of a steel grade, they asked what parameters i changed, how i measured hardness, what results u got. Third round was a managerial interview with the plant head and a senior engineer; they asked about my learnings, safety practices i observed, and how i would handle a quality complaint. Final was HR with talk about the posting in Pune, expected pay and joining. Results came in 4 days.",
+  "preparation": "Went through my internship report line by line and practised explaining it in 5 mins. Revised phase diagrams and steel grades. Some aptitude from indiabix.",
+  "experience": "Went smoothly, because I knew my project well. Interviewers were encouraging.",
+  "advice": "Show interest in process improvement and safety. They like practical thinking.",
+  "tips": "Treat internship as the real interview. And dont skip aptitude prep even for PPO, they still filter."
+ },
+ {
+  "id": 1156,
+  "selection": "2 rounds. First an online test: aptitude, logical, and a data interpretation set, 75 mins. Second round was a mixed technical + HR interview for 30 mins. They asked about a project on data analysis from my 6th sem, what tools i used, then 2 puzzles (a water jug one and the 3 switches bulb puzzle). HR questions: why EY, why analyst, ok with long hours. Package was decent for a non-CS branch.",
+  "preparation": "Practised aptitude from RS Agarwal, a few puzzles from youtube, and revised excel and some basic sql. Prepared a clean intro.",
+  "experience": "Easy and quick. Interviewer was friendly and even asked about NITK campus life.",
+  "advice": "Communication matters. Keep answers short and clear.",
+  "tips": "cgpa was 7.3 and that was ok for me. Apply to consulting/analyst roles also, they are open to all branches."
+ },
+ {
+  "id": 794,
+  "selection": "3 rounds. The OA had 2 coding questions + a few cs mcqs, i couldnt solve the second fully but passed the cutoff i guess. Interview 1: DSA, first a sliding window question, then a binary tree question. I got stuck on the second but interviewer hinted a recursion approach. Interview 2: OOPs and design, explain polymorphism with example, what is a virtual destructor, design a library management system classes. I fumbled a bit. HR questions were just thrown in at the end of interview 2. I got the offer despite my low CGPA (6.39) which i didnt expect at all.",
+  "preparation": "Leetcode, about 250 problems, with a lot of focus on trees and arrays. OOPs from geeksforgeeks + notes. Practised with a friend on a shared doc.",
+  "experience": "Very nervous before the interviews due to my cgpa, but the interviewers only cared about problem solving.",
+  "advice": "Dont be scared about a low CGPA if the company allows you to sit. Show problem solving and clear thinking.",
+  "tips": "CGPA cutoffs are real, so check eligibility early. But if u clear the cutoff skills matter more. Dont give up on the OAs, i had many fails before this :("
+ },
+ {
+  "id": 988,
+  "selection": "Two rounds. A technical round of 1 hr covering system design and OS. They asked me to design a notification service (how to handle millions of users, queue, retries, idempotency) and some ML-ops style questions like how to deploy a model and monitor drift. Then OS stuff: threads vs processes, mutex vs semaphore, paging, what is thrashing. Second round was with an engineering manager, more about my projects (a recommendation engine), my role in the team and what i want to work on. No OA for us as they used resume shortlisting.",
+  "preparation": "Gaurav Sen and some other system design videos, revising OS from the book, and building one end to end ML project with deployment on a free tier server so i could talk about it.",
+  "experience": "Fine. I liked the manager round, it felt like a chat.",
+  "advice": "They value practical experience. If u have a deployed project, mention it prominently.",
+  "tips": "Dont only grind leetcode, a real project helps a lot for ML roles. Keep ur github clean."
+ },
+ {
+  "id": 523,
+  "selection": "3 rounds. I got an interview slot through a referral from a senior who works at Arista, though i still had to clear everything. Round 1 was OA: 2 coding questions in 60 mins. Round 2 technical interview: arrays + linked list questions, then pointers and memory management in C (what happens if u free twice, stack vs heap). Round 3 was a second technical round with OOPs, a puzzle, and a medium graph problem. HR was folded into the last round. Pune office intern, announced next evening.",
+  "preparation": "Striver sheet (about 70% done), leetcode weekly contests and C programming revision since ECE people use it more. Asked the referring senior for tips on what to expect.",
+  "experience": "Good experience. The interviewers were helpful. Referral gives u a shot but does not guarantee anything.",
+  "advice": "Be solid on C and basic data structures. ECE students are also welcome in software roles.",
+  "tips": "Talk to alumni and seniors, referrals do help for getting an interview. Keep ur resume updated for the referral."
+ },
+ {
+  "id": 1167,
+  "selection": "4 rounds. OA was on hackerrank, 2 coding + 1 sql + some ML mcqs, 2 hrs. Round 2 was DSA interview, a hard-ish graph problem (shortest path with constraints) and a heap question. Round 3: ML/statistics + OOPs, asked me about the difference between L1 and L2 reg, how does a random forest work, c++ OOPs, templates, virtual functions, and the resume project on object detection. Round 4: a hiring manager round about my internship experience and what kind of work i want to do. Offers were announced after 3 days. For me the toughest was the graph problem, took 35 mins.",
+  "preparation": "Leetcode (350+), codeforces contests when i had time, cs229 notes and the ISLR book for ML. Resume was reviewed by 3 seniors, which i think helped.",
+  "experience": "Pretty intense but also satisfying. Panel gave positive feedback in the end.",
+  "advice": "Both DSA and ML depth are needed. Dont skip the OOPs part.",
+  "tips": "Dont compare urself with others, process is long and tiring. Do mocks, they matter more than u think. And stay off linkedin during the placement period, it just stresses u out lol."
+ },
+ {
+  "id": 157,
+  "selection": "One round: PPO conversion at TCS, so after the internship ended we had a final evaluation. It included a short aptitude test (reasoning+verbal) and a combined interview with HR where they discussed my internship project, feedback from my mentor, location preference (they gave me Mumbai) and joining date. Total 20-25 mins. The result came with an email within a week.",
+  "preparation": "Not much. Just did aptitude practice for 3-4 days and prepared a summary of my internship work.",
+  "experience": "Easy, nothing special to share. They already had my feedback so it was mainly formalities.",
+  "advice": "Keep ur intern project report ready, they sometimes ask for it.",
+  "tips": "If u have a PPO from TCS you can relax a bit and prepare for better companies too, but dont ignore the final evaluation."
+ },
+ {
+  "id": 977,
+  "selection": "5 rounds, with a referral from a senior who had interned there the previous year. 1) Resume shortlist + short call with HR. 2) Online aptitude and digital electronics test. 3) Technical interview 1: digital electronics, FPGA basics, setup/hold time, what is metastability, Verilog basics. 4) Technical interview 2: system design, how would u design an embedded system for a drone's flight controller, what sensors, interfaces (SPI, I2C, UART), power budget, rtos choice. 5) Managerial/HR round with a senior engineer, projects and team fit. The whole thing took one week. Offer came on a Friday evening.",
+  "preparation": "Revised digital design from class notes and nptel, embedded basics (interrupts, memory map, rtos), and went through my projects (a UART based thing and a small arm cortex board). Asked the referring senior for sample questions.",
+  "experience": "Very technical, but interviewers were calm. I fumbled a bit on the metastability question.",
+  "advice": "Know the basics of embedded and digital electronics really well. System design for hardware is a thing here.",
+  "tips": "Referral helps with getting a call but still needs ur preparation. Also keep ur project docs ready to share. Dont hesitate to ask seniors for help, they are happy to give."
+ },
+ {
+  "id": 1409,
+  "selection": "Just one round for me. After resume shortlisting there was a combined interview, 20 minutes, started with intro, then one coding question: find the second largest element in an array and then reverse a linked list (i said i didnt do much linked list, he said just explain the logic). Then he asked about my project on a bridge design software and why a civil student was applying for a systems engineer role. HR bit at the end was about location and joining.",
+  "preparation": "Did some python and c basics from a coursera course and solved around 80 easy leetcode questions in the month before. Also made sure my resume showed my coding projects.",
+  "experience": "Okay. Interviewer was not strict. I think it helped that i was honest about my background.",
+  "advice": "Be ready to explain why u are switching from core. Know basic coding well.",
+  "tips": "Dont be afraid of the CS vs non CS gap, mass recruiters take everyone. Just practice basics and take it seriously."
+ },
+ {
+  "id": 1511,
+  "selection": "5 rounds. OA first (2 coding qs + 15 mcq on digital design and C), 90 mins. Then tech interview 1 on digital design, setup-hold, clock domain crossing, finite state machines, how to design a sequence detector, plus a Verilog snippet to fix. Tech interview 2 was DSA: sorting with constraints, and a dp one. Third interview was OOPs and projects, they asked in detail about my verilog project on a RISC-V core, what pipeline hazards did u face. Final round was HR + a hiring manager call. Process took 3 days, quite hectic.",
+  "preparation": "Digital design from morris mano and nptel, verilog practice on hdlbits, leetcode medium for DSA, and went through my RISC-V project multiple times. Also revised c++ OOPs.",
+  "experience": "Overall nice experience, i learnt a lot. Interviewers were really sharp. I was lucky with the DSA question because it was something i had seen earlier.",
+  "advice": "For VLSI roles be ready for a mix of hardware and software questions. They do like DSA.",
+  "tips": "Even EEE folks should do some DSA, many companies have it in OA. Dont panic if u mess up one round, keep fighting :)"
+ },
+ {
+  "id": 629,
+  "selection": "2 rounds. Round 1 was the online test with aptitude, reasoning, verbal and a section on pseudo code / basic programming. ~100 mins, quite time pressed. Round 2 was an interview of 20 mins, mixed technical + HR. Technical was mainly OOPs: what is encapsulation, difference between abstract class and interface, what is method overloading vs overriding in java. They also asked me to write a program to check palindrome string. Then a bit about my mech background and why software. Result came after 4 days.",
+  "preparation": "Learned java basics from a youtube playlist and practised aptitude from a few mock tests. Wrote a small java project (a billing app) to add to my resume.",
+  "experience": "It was ok. The interviewer was polite and didnt trick me, seemed happy I could explain OOPs with examples.",
+  "advice": "Basic java/python and OOPs is enough. Practice aptitude for speed.",
+  "tips": "Mechanical students, dont feel scared about non-core roles. Pick one language and be good at it."
+ },
+ {
+  "id": 358,
+  "selection": "5 rounds in total for TCS Ninja/Digital style hiring, i was a metallurgy student applying through the software route. 1) NQT type online test: numerical, verbal, reasoning. 2) Advanced coding round, 2 problems, one was array based and one was a string problem. 3) Technical interview where they asked OOPs concepts, difference between stack and heap, what is normalization, and my C program for fibonacci with recursion. They also asked about a DSA question like reverse a linked list. 4) Managerial round, 15 mins. 5) HR round. Offer letter came after a month.",
+  "preparation": "Prepinsta, indiabix, leetcode easy-medium and revised OOPs and DBMS basics from a YouTube playlist.",
+  "experience": "Nothing special really but a long process. Waiting for the results was stressful for a long time.",
+  "advice": "Practise coding questions on speed, and know your basics in c/java. Dont take it easy since many get filtered in round 2.",
+  "tips": "Mass recruiters are a good backup especially for core branches. Cgpa and no backlogs matter for eligibility."
+ },
+ {
+  "id": 16,
+  "selection": "Single round. I got a PPO after my summer internship and the conversion needed a short online assessment (45 mins, 2 coding questions, one easy and one medium) and nothing else. Results were out in 2 days.",
+  "preparation": "Did a lot of leetcode in the summer and during the internship i tried to write good clean code and finish tasks on time.",
+  "experience": "Easy for me. Honestly the internship was the real interview.",
+  "advice": "Work hard during the internship and keep ur DSA warm till the OA.",
+  "tips": "Dont get too relaxed with a high cgpa, take the OA seriously. Also be nice to everyone in the team, feedback goes a long way."
+ },
+ {
+  "id": 699,
+  "selection": "5 rounds with Salesforce, took 2 days. Round 1 was the OA: 3 coding questions in 90 mins (a graph, a dp and an easy greedy) and i solved all with some difficulty. Round 2: technical interview with a DSA problem on trees, then follow ups on time complexity. Round 3: another DSA + a design question like design a parking lot / elevator system with classes. Round 4: project discussion round for an hour, they wanted details of a web project i did with a team, tech stack, db choices, authentication, scaling. Round 5: HR with a manager, behavioural questions about leadership, conflict, failures. They liked storytelling. Results next day.",
+  "preparation": "Striver + NeetCode lists, around 400 leetcode questions, system design basics from some yt channel and prepared behaviour stories using the STAR format.",
+  "experience": "Strongly positive. People were nice and the process was well organised. The 4th round was draining though.",
+  "advice": "Behavioural round is serious, prepare stories. Know ur project architecture end to end.",
+  "tips": "Do mock interviews, they are a game changer. Also keep ur LinkedIn/resume clean, they checked it. Dont panic if u get hints, take them."
+ },
+ {
+  "id": 962,
+  "selection": "3 rounds. Round 1 was the technical interview on mechanical core: they asked about heat treatment of steel (mechanical angle), Mohr's circle, what is fatigue, S-N curve, difference between plastic and elastic deformation, a small numerical on thermal expansion. Round 2 was about my project (design of a gearbox for my BTP prep) with questions on material selection and failure analysis. Round 3 was HR with a plant manager, asked about my willingness to work in shifts and the Chennai location. Whole selection took 1 day at campus.",
+  "preparation": "Revised strength of materials, thermo and machine design from notes. Went through my project report carefully.",
+  "experience": "Good experience. Panel was patient and gave time to think. Result was announced in the evening.",
+  "advice": "Be thorough with the fundamentals, they love to ask 'why' for every formula.",
+  "tips": "Dont be scared of core interviews, they tend to be conceptual. Keep ur project report handy to revise before the interview."
+ },
+ {
+  "id": 139,
+  "selection": "The offer was via PPO conversion, 4 rounds: first a resume review call with the HR, then a case-study interview with a consultant (they gave a small business problem, i had to suggest a structure and next steps), then a project discussion with a manager (my internship was on process analysis for a client in manufacturing), and finally partner/HR round about fit and compensation. Each was 20-30 mins. Results after 3 days.",
+  "preparation": "Did a couple of cases with seniors, brushed up on excel, and prepared my internship story with numbers (cost reduced by X%). Read the EY website a bit for their service lines.",
+  "experience": "Smooth process. The consultants were friendly. I was nervous about the case but my internship examples helped.",
+  "advice": "Have crisp numbers on ur achievements. Resume bullet points need impact, not just tasks.",
+  "tips": "Chemical students can do well in consulting too. Cgpa about 7.5 was okay. Focus on communication and structure."
+ },
+ {
+  "id": 402,
+  "selection": "Five rounds, mostly online at first. 1) Cognitive + technical assessment (90 qs/90 min). 2) Coding assessment, 2 easy questions on hashmaps and strings, i did it in python. 3) Communication assessment (non-eliminatory, voice-based). 4) Technical interview, they asked a basic sql query, one OOPs question and one coding question (anagram check). Since I am from civil he also asked me to explain a civil project in simple terms. 5) HR round, 15 mins, standard stuff. The whole process was from morning to evening. Results were released after 5 days.",
+  "preparation": "Did indiabix for aptitude, learned python basics + sql from a course in the summer, and solved 50-60 easy leetcode questions. My intro was well practiced.",
+  "experience": "A long day but the SPOCs were really helpful and calm. Laptop issue happened during OA but they helped quickly.",
+  "advice": "Check ur laptop and internet before the test. Dont ignore the communication test, its easy to prepare for.",
+  "tips": "cgpa cutoffs here are strict, so check it. Be calm during the long process and eat something in between lol."
+ },
+ {
+  "id": 1221,
+  "selection": "3 rounds. First round was a technical test with 30 mcqs on mining basics + general engineering and some aptitude. Second round was a technical interview with a panel of 2 engineers: they asked about mine ventilation (what is a regulator, what is an auxiliary fan), rock mechanics, drilling and blasting, shaft sinking. And about my project on slope stability analysis using software. Third round was HR/manager, they wanted to know if i can handle site life in Kolkata area and further trips to remote locations. Selection results in the evening.",
+  "preparation": "Mostly revision of mining subjects. For ventilation, i solved a few numericals on airflow and head loss. Went through project software outputs to explain them clearly.",
+  "experience": "It went well. Panel was approachable, one of them was an alumnus of NITK which helped me relax.",
+  "advice": "Brush up on mine ventilation and blasting. Also have a decent understanding of safety rules.",
+  "tips": "Core companies prefer people with project exposure. Even a small project helps. Try to attend all pre placement talks."
+ },
+ {
+  "id": 74,
+  "selection": "2 rounds, i got the PPO through internship. First, online test (aptitude + verbal + coding 2 questions, easy). Second a combined technical and HR interview of around 20 mins. Technical was: OOPs concepts (4 pillars with real examples), what is a primary key vs foreign key, simple SQL query, what is a deadlock. HR was: how was ur internship, are u ok with night shifts or client site, bond/service agreement. package announced was 4.1 LPA which is the lower end honestly.",
+  "preparation": "Revised OOPs and DBMS basics from a notes pdf, a little sql practice, and aptitude from indiabix. Not much else needed.",
+  "experience": "Quick and simple. Not too much pressure, bit boring maybe.",
+  "advice": "Package is low compared to product companies, so think about it. Process is easy to clear if basics are clear.",
+  "tips": "Use mass recruiters as a safety net but keep trying for better ones too. If u already have a PPO, keep applying. Dont stop practicing DSA."
+ },
+ {
+  "id": 147,
+  "selection": "3 rounds. The referral from a senior got my resume noticed. OA was 3 coding questions in 100 mins with dp and a tree problem, plus a few ML mcqs. I solved all of them. Round 2 was a technical interview: OOPs concepts (SOLID, design patterns like singleton and factory), a coding problem on a sliding window with a hashmap, then ML questions: how does svm work, how u handle imbalanced data, what is cross validation. Round 3 was a hiring manager round about my projects and ml internship, they asked about deployment and monitoring. Offer came the same night around 11 pm.",
+  "preparation": "Leetcode (500+ problems), ml course notes and 2 solid projects on github. Did multiple mock interviews with seniors including one working at Oracle.",
+  "experience": "Great experience, the interviewers were friendly and gave positive feedback after each round. I felt confident since i was well prepared.",
+  "advice": "Solid DSA + ML + OOPs, all three matter. Have ur projects deployable so u can discuss.",
+  "tips": "High cgpa helps with shortlisting but doesnt guarantee. Prepare for a long season and ask for referrals from seniors, it saves time."
+ }
+]

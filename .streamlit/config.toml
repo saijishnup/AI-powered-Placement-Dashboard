@@ -1,0 +1,35 @@
+[theme]
+font = "Manrope:https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;700;800&display=swap"
+headingFont = "Manrope"
+headingFontWeights = [800, 700, 700, 700, 700, 700]
+baseFontWeight = 300
+codeFont = "Geist Mono:https://fonts.googleapis.com/css2?family=Geist+Mono:wght@400;500;600&display=swap"
+baseRadius = "4px"
+headingFontSizes = ["28px", "22px", "20px", "16px", "14px", "12px"]
+primaryColor = "#7C5CFF"
+
+[theme.dark]
+primaryColor = "#7C5CFF"
+backgroundColor = "#0B0B0F"
+secondaryBackgroundColor = "#17171C"
+textColor = "#E8E8EE"
+borderColor = "#2A2A33"
+chartCategoricalColors = ["#3987e5", "#d95926", "#199e70", "#c98500", "#d55181", "#008300", "#9085e9", "#e66767"]
+
+[theme.light]
+primaryColor = "#7C5CFF"
+backgroundColor = "#EDF0F5"
+secondaryBackgroundColor = "#FFFFFF"
+textColor = "#0F172A"
+borderColor = "#DDE2EA"
+chartCategoricalColors = ["#2a78d6", "#eb6834", "#1baf7a", "#eda100", "#e87ba4", "#008300", "#6250d6", "#e34948"]
+
+[client]
+toolbarMode = "viewer"
+
+[server]
+showEmailPrompt = false
+address = "localhost"
+
+[browser]
+gatherUsageStats = false
