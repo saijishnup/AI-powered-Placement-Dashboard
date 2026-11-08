@@ -33,8 +33,9 @@ def clean(text):
 
 def chat(messages, kind="qa", model=None):
     """One completion. Returns (text, usage). Raises on failure; caller decides fallback."""
-    model = model or models()[0]
-    effort = os.getenv("LLM_REASONING_EFFORT")  # optional: only sent when set
+    # "name@low" in LLM_MODEL overrides LLM_REASONING_EFFORT for that model (gpt-oss rejects "none")
+    model, _, effort = (model or models()[0]).partition("@")
+    effort = effort or os.getenv("LLM_REASONING_EFFORT")  # optional: only sent when set
     resp = client().chat.completions.create(
         model=model, messages=messages, max_tokens=CAPS[kind], temperature=0.9 if kind == "seed" else 0.2,
         **({"reasoning_effort": effort} if effort else {}))
