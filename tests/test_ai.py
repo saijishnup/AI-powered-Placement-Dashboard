@@ -72,11 +72,17 @@ def test_overview_cache_zero_calls_when_clean(conn, fake_llm):
     assert len(fake.calls) == 2
 
 
-def test_answer_without_retrieval_skips_llm(conn, fake_llm):
-    make_review(conn)
-    fake = fake_llm({0: ["should not be used"]})
-    out = qa.answer(conn, "quantum chromodynamics")
-    assert out["text"] == "NOT_ENOUGH_INFO" and fake.calls == []
+def test_stats_cover_all_reviews_and_stats_only_answer_is_valid(conn, fake_llm):
+    """Counts must come from every review in scope, not just the few retrieved (bug: 'how many reviews' said 8)."""
+    for _ in range(11):
+        make_review(conn, type="internship", pay=60, tags="OA,DSA")
+    make_review(conn, type="placement", pay=20, tags="DSA")
+    fake = fake_llm({0: ["There are 12 reviews in scope [S]."]})
+    out = qa.answer(conn, "how many reviews in total")
+    prompt = fake.calls[0]["messages"][1]["content"]
+    assert "12 reviews (11 internship, 1 placement)" in prompt and "DSA 12, OA 11" in prompt
+    assert out["text"] == "There are 12 reviews in scope [S]." and out["citations"] == {}
+    assert not qa.validate_citations("12 reviews [S].", {}, stats_ok=False)  # [S] only counts when stats were sent
 
 
 def test_clean_strips_think_and_odd_spaces():

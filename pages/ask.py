@@ -45,5 +45,6 @@ elif res["text"] == qa.NOT_ENOUGH:
             "clearly. Try other words, or clear some filters.")
 else:
     ui.ai_card("Answer", [ui.cite_html(res["text"])],
-               f"From {len(res['citations'])} of {res['retrieved']} retrieved reviews")
+               ("Stats on all reviews in scope + " if "[S]" in res["text"] else "")
+               + f"{len(res['citations'])} of {res['retrieved']} retrieved reviews")
     ui.cited_reviews(res["citations"], key=f"ask_tbl_{hash(st.session_state.ask_key)}")  # new key per answer

@@ -194,8 +194,9 @@ def tags_html(tags):
 
 
 def cite_html(text):
-    """Escape model text, then turn [R3] into a citation chip (chips are labels; Open buttons below navigate)."""
-    return re.sub(r"\[R(\d+)\]", r'<span class="pd-cite">R\1</span>', html.escape(text or ""))
+    """Escape model text, then turn [R3] and [S] (the stats block) into citation chips."""
+    text = re.sub(r"\[R(\d+)\]", r'<span class="pd-cite">R\1</span>', html.escape(text or ""))
+    return text.replace("[S]", '<span class="pd-cite">Stats</span>')
 
 
 def cited_reviews(ids, key, cols=("cite", "company", "job_profile", "selection")):
