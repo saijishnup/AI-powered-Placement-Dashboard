@@ -15,6 +15,13 @@ DEPARTMENTS = ["CSE", "IT", "ECE", "EEE", "Mechanical", "Civil", "Chemical",
 TIERS = ["Super Dream", "Dream", "Normal", "University"]
 TAGS = ["DSA", "OA", "system design", "OOPs", "DBMS", "OS", "CN", "projects", "resume", "HR",
         "puzzles", "aptitude", "core", "ML", "PPO", "referral"]
+LINKEDIN_RE = re.compile(r"^https://(www\.)?linkedin\.com/\S+$")
+TEXTS = [  # review text sections: column, label, form placeholder
+          ("selection", "Selection procedure", "Round 1, round 2, what was asked in each"),
+         ("preparation", "Way of preparation", "Resources, sheets, how long"),
+         ("experience", "Overall experience", "Interviewers, process, work"),
+         ("advice", "Advice for the company", "What this company looks for"),
+         ("tips", "General tips", "Anything for the season in general")]
 MONO = '"Geist Mono", ui-monospace, monospace'
 
 
@@ -123,10 +130,6 @@ button[data-variant="pills"] { border-radius: 4px !important; }  /* st.pills ign
 AI_ICON = ('<svg viewBox="0 0 24 24"><path d="M4 6h16M4 12h10M4 18h7"/><path d="M17 15l1.5 3 3 1.5-3 1.5L17 24"/></svg>')
 
 
-def apply_css():
-    st.markdown(CSS.replace("{mono}", MONO), unsafe_allow_html=True)
-
-
 def setup(title, caption=None):
     """Call at top of every page: page title (CSS is injected once by app.py)."""
     st.title(title)
@@ -210,7 +213,7 @@ def cited_reviews(ids, key, cols=("cite", "company", "job_profile", "selection")
 
 
 def open_review(review_id):
-    """Navigate in-app (keeps session/login; an <a href> would reload and drop the fake login)."""
+    """Navigate in-app (keeps the session; an <a href> would reload and drop the demo login)."""
     st.switch_page("pages/review.py", query_params={"id": int(review_id)})
 
 
@@ -231,13 +234,7 @@ def metrics(cells, per_row=4):
             col.metric(label, value, border=True)
 
 
-def tag_counts(df):
-    t = df.tags.dropna().str.split(",").explode().str.strip()
-    return t[t != ""].value_counts()
-
-
-LABELS = {"cite": "Cite", "company": "Company", "job_profile": "Role", "department": "Dept",
-          "batch_year": "Batch", "type": "Type", "selection": "Preview"}
+LABELS = {"cite": "Cite", "company": "Company", "job_profile": "Role", "batch_year": "Batch", "selection": "Preview"}
 
 
 def review_table(table, ids, key, **kw):
@@ -257,7 +254,7 @@ CHART = {"displayModeBar": False}
 
 def style_fig(fig, height=320):
     """Size, legend and mono numeric ticks. Colours, grid and fonts come from Streamlit's chart theme (config.toml)."""
-    fig.update_layout(height=height, margin=dict(l=8, r=8, t=8, b=8), bargap=0.35,
+    fig.update_layout(height=height, margin=dict(l=8, r=8, t=8, b=8),
                       legend=dict(orientation="h", y=1.08, x=0, title=None), hoverlabel=dict(font=dict(family=MONO)))
     for axis, update in (("x", fig.update_xaxes), ("y", fig.update_yaxes)):
         # Geist Mono only for numeric axes; category labels (company, dept, tag) stay in the body font.
@@ -274,7 +271,4 @@ def hbar(counts, height=320):
     fig = go.Figure(go.Bar(x=counts.values, y=counts.index.astype(str), orientation="h", marker_color=ACCENT,
                            text=counts.values, textposition="outside", cliponaxis=False,
                            textfont=dict(family=MONO, color="#8A8F9C"), hovertemplate="%{y}: %{x}<extra></extra>"))
-    fig = style_fig(fig, height)
-    fig.update_xaxes(showgrid=False, showticklabels=False)
-    fig.update_layout(bargap=0.45)
-    return fig
+    return style_fig(fig, height).update_xaxes(showgrid=False, showticklabels=False).update_layout(bargap=0.45)

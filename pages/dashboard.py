@@ -12,7 +12,6 @@ df = db.query_reviews(ui.conn(), f)
 # Short department labels so the box-plot x axis stays readable.
 SHORT = {"Mechanical": "ME", "Civil": "CV", "Chemical": "CH", "Metallurgical and Materials": "MT",
          "Mining": "MN", "Computational and Data Science": "CDS"}
-CHART = ui.CHART
 
 
 def pay_box(rows, unit, height=320):
@@ -22,9 +21,8 @@ def pay_box(rows, unit, height=320):
     fig = px.box(rows.assign(dept=rows.department.replace(SHORT)), x="dept", y="pay", points=False,
                  category_orders={"dept": [SHORT.get(d, d) for d in ui.DEPARTMENTS]})
     fig.update_traces(marker_color=ui.ACCENT, line_width=1.2, hovertemplate=f"%{{x}}<br>%{{y}} {unit}<extra></extra>")
-    fig = ui.style_fig(fig, height)
-    fig.update_yaxes(ticksuffix=f" {unit}" if unit == "LPA" else "k")
-    st.plotly_chart(fig, width="stretch", config=CHART)
+    fig = ui.style_fig(fig, height).update_yaxes(ticksuffix=f" {unit}" if unit == "LPA" else "k")
+    st.plotly_chart(fig, width="stretch", config=ui.CHART)
 
 
 # ---------- KPI row ----------
@@ -39,7 +37,7 @@ if df.empty:
 r1 = st.columns(2)
 with r1[0], st.container(border=True, key="eq_top_companies"):
     st.markdown("**Top 10 companies by reviews**")
-    st.plotly_chart(ui.hbar(df.company.value_counts().head(10)), width="stretch", config=CHART)
+    st.plotly_chart(ui.hbar(df.company.value_counts().head(10)), width="stretch", config=ui.CHART)
 
 with r1[1], st.container(border=True, key="eq_pay"):
     st.markdown("**Pay by department**")
@@ -60,17 +58,16 @@ with r2[0], st.container(border=True, key="eq_years"):
     years = df.assign(year=df.created_at.str[:4], type=df.type.str.capitalize())
     fig = px.histogram(years.sort_values("year"), x="year", color="type", category_orders={"type": ["Internship", "Placement"]})
     fig.update_traces(hovertemplate="%{x}: %{y}")  # px colours follow the theme palette in config.toml
-    fig = ui.style_fig(fig)
-    fig.update_layout(barmode="stack", bargap=0.55)
-    st.plotly_chart(fig, width="stretch", config=CHART)
+    fig = ui.style_fig(fig).update_layout(barmode="stack", bargap=0.55)
+    st.plotly_chart(fig, width="stretch", config=ui.CHART)
 
 with r2[1], st.container(border=True, key="eq_tags"):
     st.markdown("**Top topic tags**")
-    tags = ui.tag_counts(df).head(12)
+    tags = db.tag_counts(df).head(12)
     if tags.empty:
         st.caption("No tags for these filters.")
     else:
-        st.plotly_chart(ui.hbar(tags), width="stretch", config=CHART)
+        st.plotly_chart(ui.hbar(tags), width="stretch", config=ui.CHART)
 
 # ---------- review table ----------
 with st.container(border=True):

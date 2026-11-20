@@ -19,8 +19,3 @@ def scrub(text, names=()):
                 text = re.sub(rf"\b{re.escape(part)}\b", "[name]", text, flags=re.I)
     return text
 
-
-if __name__ == "__main__":
-    s = scrub("mail me at a.b@nitk.edu.in or +91 98765 43210, linkedin.com/in/xyz. Ravi Kumar here", ["Ravi Kumar"])
-    assert "@" not in s and "98765" not in s and "linkedin" not in s and "Ravi" not in s, s
-    print(s)

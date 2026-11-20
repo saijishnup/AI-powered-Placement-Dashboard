@@ -5,14 +5,14 @@ import re
 import streamlit as st
 
 from lib import db
-from lib.ui import apply_css, conn
+from lib.ui import CSS, MONO, conn
 from pages import overview
 
 EMAIL_RE = re.compile(r"^[A-Za-z0-9._%+-]+@nitk\.edu\.in$")
 
 st.set_page_config(page_title="Placement Dashboard", page_icon="assets/logo.svg", layout="wide")
 st.logo("assets/logo.svg")  # graduation cap: sidebar brand + browser tab
-apply_css()
+st.markdown(CSS.replace("{mono}", MONO), unsafe_allow_html=True)
 
 try:
     GOOGLE = "auth" in st.secrets  # .streamlit/secrets.toml [auth] = real Google sign-in
@@ -33,19 +33,15 @@ def login():
             st.error("Use your @nitk.edu.in Google account.")
         if GOOGLE:
             st.button("Sign in with Google", type="primary", width="stretch", on_click=st.login)
-        else:
-            login_form()
-
-
-def login_form():
-    with st.form("login", border=True):
-        email = st.text_input("NITK email", placeholder="name.dept@nitk.edu.in").strip().lower()
-        if st.form_submit_button("Continue", type="primary", width="stretch"):
-            if allowed(email):
-                st.session_state.email = email
-                st.rerun()
-            st.error("Use your @nitk.edu.in email.")
-        st.markdown('<p class="pd-muted">Demo login: Google sign-in is off on this machine.</p>', unsafe_allow_html=True)
+            return
+        with st.form("login", border=True):  # demo login when Google sign-in is not configured
+            email = st.text_input("NITK email", placeholder="name.dept@nitk.edu.in").strip().lower()
+            if st.form_submit_button("Continue", type="primary", width="stretch"):
+                if allowed(email):
+                    st.session_state.email = email
+                    st.rerun()
+                st.error("Use your @nitk.edu.in email.")
+            st.markdown('<p class="pd-muted">Demo login: Google sign-in is off on this machine.</p>', unsafe_allow_html=True)
 
 
 if GOOGLE and st.user.is_logged_in and "email" not in st.session_state:

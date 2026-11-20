@@ -51,8 +51,6 @@ def test_insert_review_marks_company_and_department_dirty(conn):
 
 
 def test_admins_add_remove_never_last(conn):
-    for e in db.admins(conn):  # start clean: drop seeded ADMINS
-        conn.execute("DELETE FROM admins WHERE email = ?", (e,))
     db.set_admin(conn, "A@nitk.edu.in", True)
     db.set_admin(conn, "b@gmail.com", True)
     assert db.is_admin(conn, "a@nitk.edu.in") and db.admins(conn) == ["a@nitk.edu.in", "b@gmail.com"]

@@ -2,6 +2,7 @@
 Plain SQL (works on sqlite3 and libsql/Turso); sqlite-utils only builds the FTS index + sync triggers on a fresh DB."""
 import os
 import sqlite3
+import warnings
 from datetime import date
 from pathlib import Path
 
@@ -47,6 +48,7 @@ def connect(path=DB_PATH):
     Path(path).parent.mkdir(parents=True, exist_ok=True)
     if os.getenv("TURSO_URL"):
         import libsql  # only needed when hosted
+        warnings.filterwarnings("ignore", "pandas only supports")  # pandas reads libsql fine, it just warns
         conn = libsql.connect(str(Path(path).with_name("replica.db")), sync_url=os.environ["TURSO_URL"],
                               auth_token=os.getenv("TURSO_TOKEN", ""))
         conn.sync()
@@ -91,6 +93,11 @@ STOP = set("a an the is are was were be do does did how what which who whom when
            "should would will there here about into like any some all much many more most".split())
 
 
+def tag_counts(df):
+    t = df.tags.dropna().str.split(",").explode().str.strip()
+    return t[t != ""].value_counts()
+
+
 def query_reviews(conn, filters=None):
     where, p = _where(filters)
     return pd.read_sql_query(
@@ -99,17 +106,17 @@ def query_reviews(conn, filters=None):
 
 
 def get_review(conn, review_id):
-    rows = _dicts(conn.execute(f"SELECT r.*, c.name AS company, c.tier, c.sector {BASE} WHERE r.id = ?", (review_id,)))
-    return rows[0] if rows else None
+    return next(iter(_dicts(conn.execute(f"SELECT r.*, c.name AS company, c.tier, c.sector {BASE} WHERE r.id = ?",
+                                         (review_id,)))), None)
 
 
 def list_companies(conn):
     return pd.read_sql_query("SELECT * FROM companies ORDER BY name", conn)
 
 
-def company_id(conn, name, tier="Normal", sector=None):
+def company_id(conn, name, tier="Normal"):
     """Return id for a company name, creating it if new (submit form 'other')."""
-    conn.execute("INSERT OR IGNORE INTO companies(name, tier, sector) VALUES (?, ?, ?)", (name, tier, sector))
+    conn.execute("INSERT OR IGNORE INTO companies(name, tier) VALUES (?, ?)", (name, tier))
     return conn.execute("SELECT id FROM companies WHERE name = ?", (name,)).fetchone()[0]
 
 
@@ -139,8 +146,8 @@ def search_fts(conn, q, filters=None, k=8):
 
 
 def get_cache(conn, scope, key):
-    rows = _dicts(conn.execute("SELECT content, dirty FROM overview_cache WHERE scope=? AND key=?", (scope, key)))
-    return rows[0] if rows else None
+    return next(iter(_dicts(conn.execute("SELECT content, dirty FROM overview_cache WHERE scope=? AND key=?",
+                                         (scope, key)))), None)
 
 
 def set_cache(conn, scope, key, content):

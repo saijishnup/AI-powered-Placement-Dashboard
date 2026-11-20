@@ -61,30 +61,33 @@ def _pay(pay, rtype):
     return f"{pay:.1f} LPA CTC" if rtype == "placement" else f"{pay:.0f}k INR/month stipend"
 
 
+def _pays(d):
+    return d.pay[d.type == "placement"].dropna(), d.pay[d.type == "internship"].dropna()
+
+
+def _line(name, d):
+    """One stats line for a group of reviews: counts, CTC and stipend median / mean."""
+    p, i = _pays(d)
+    n = d.type.value_counts()
+    ctc = f"placement CTC median {p.median():.1f} / mean {p.mean():.1f} LPA" if len(p) else "no CTC data"
+    sti = f"internship stipend median {i.median():.0f} / mean {i.mean():.0f}k per month" if len(i) else "no stipend data"
+    return f"{name}: {len(d)} reviews ({n.get('internship', 0)} internship, {n.get('placement', 0)} placement), {ctc}, {sti}"
+
+
 def stats_block(df, focus=()):
     """Exact aggregates over every review in scope (2-year window + sidebar filters), cited as [S].
     focus: company names to list besides the top 10 (keeps the prompt small for free-tier rate limits)."""
     if df.empty:
         return "<stats>\nNo reviews match the current filters.\n</stats>"
-
-    def line(name, d):
-        p, i = d.pay[d.type == "placement"].dropna(), d.pay[d.type == "internship"].dropna()
-        ctc = f"placement CTC median {p.median():.1f} / mean {p.mean():.1f} LPA" if len(p) else "no CTC data"
-        sti = f"internship stipend median {i.median():.0f} / mean {i.mean():.0f}k per month" if len(i) else \
-            "no stipend data"
-        return f"{name}: {len(d)} reviews ({(d.type == 'internship').sum()} internship, " \
-               f"{(d.type == 'placement').sum()} placement), {ctc}, {sti}"
-
-    p, i = df.pay[df.type == "placement"].dropna(), df.pay[df.type == "internship"].dropna()
-    tags = df.tags.dropna().str.split(",").explode().str.strip()
-    out = [line("All reviews in scope", df) + f", {df.company.nunique()} companies, "
+    p, i = _pays(df)
+    out = [_line("All reviews in scope", df) + f", {df.company.nunique()} companies, "
            f"{(df.outcome == 'university').sum()} university admits, average {df.rounds.mean():.1f} rounds",
            f"Placement CTC (LPA): mean {p.mean():.1f}, min {p.min():.1f}, max {p.max():.1f}" if len(p) else "",
            f"Internship stipend (k/month): mean {i.mean():.0f}, min {i.min():.0f}, max {i.max():.0f}" if len(i) else "",
            "Not in the data: placement percentage, students who applied or were rejected, students without an offer "
            "(only students with an offer write reviews).",
            "Topic tags, most mentioned first (number of reviews): " + ", ".join(
-               f"{t} {n}" for t, n in tags[tags != ""].value_counts().items())]
+               f"{t} {n}" for t, n in db.tag_counts(df).items())]
     for col, label, n in (("department", "Departments", None), ("company", "Companies (top 10)", 10)):
         for rtype, unit in (("placement", "median placement CTC, LPA"), ("internship", "median internship stipend, k/month")):
             s = df[df.type == rtype].groupby(col).pay.median().dropna().sort_values(ascending=False).head(n)
@@ -96,7 +99,7 @@ def stats_block(df, focus=()):
                        ("Companies (top 10 by reviews, plus any in the question or reviews)", "company")):
         groups, counts = d.groupby(col, observed=True), d[col].value_counts()
         keys = [k for i, (k, n) in enumerate(counts.items()) if n and (col != "company" or i < 10 or k in focus)]
-        out += [f"{title}:"] + [" - " + line(str(k), groups.get_group(k)) for k in keys]
+        out += [f"{title}:"] + [" - " + _line(str(k), groups.get_group(k)) for k in keys]
     return "<stats>\n" + "\n".join(x for x in out if x) + "\n</stats>"
 
 

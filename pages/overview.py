@@ -22,7 +22,7 @@ def stats(df, last, per_row=4):
     p, i = df[df.type == "placement"], df[df.type == "internship"]
     ui.metrics([("Reviews", len(df)), ("Median CTC (LPA)", ui.med(p.pay)),
                 ("Median stipend (k/mo)", ui.med(i.pay, 0)), last], per_row)
-    st.markdown(ui.tags_html(ui.tag_counts(df).head(10).index), unsafe_allow_html=True)
+    st.markdown(ui.tags_html(db.tag_counts(df).head(10).index), unsafe_allow_html=True)
 
 
 def tail(scope, key, df, cols):
@@ -90,7 +90,6 @@ def departments():
             fig = px.box(pay, x="tier", y="pay", color="tier", category_orders={"tier": ui.TIERS}, points="outliers")
             fig.update_layout(showlegend=False)
             fig.update_traces(hovertemplate="%{y:.1f} " + unit + "<extra></extra>")
-            fig = ui.style_fig(fig, 264)
-            fig.update_yaxes(title=unit, title_font=dict(size=11))
+            fig = ui.style_fig(fig, 264).update_yaxes(title=unit, title_font=dict(size=11))
             st.plotly_chart(fig, config=ui.CHART, width="stretch")
     tail("department", dept, df, ["company", "batch_year", "selection"])

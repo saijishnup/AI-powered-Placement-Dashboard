@@ -3,7 +3,7 @@ Authlib           # Google login via st.login (OIDC)
 libsql            # Turso embedded replica when hosted (TURSO_URL); needs Python 3.12
 plotly            # interactive charts
 pandas            # dataframes for charts/tables (streamlit dep anyway)
-openai            # client for any OpenAI-compatible endpoint (OmniRoute gateway; OpenRouter for the demo later)
+openai            # client for any OpenAI-compatible endpoint (OmniRoute gateway)
 python-dotenv     # load .env
-sqlite-utils      # FTS5 index + sync triggers, inserts, upserts (lib/db.py, seed/load.py)
+sqlite-utils      # FTS5 index + sync triggers on a fresh DB (lib/db.py)
 pytest            # tests

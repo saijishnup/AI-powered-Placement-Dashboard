@@ -1,4 +1,4 @@
-"""The only LLM entry point. One OpenAI-compatible endpoint from .env (the OmniRoute gateway; no local models).
+"""The only LLM entry point. One OpenAI-compatible endpoint from .env (our OmniRoute gateway; any provider works).
 LLM_MODEL is a comma list tried in order: each model gets one retry (error or failed check), then the next."""
 import os
 import re
@@ -8,7 +8,6 @@ from openai import OpenAI
 
 THINK_RE = re.compile(r"<think>.*?</think>|^.*?</think>", re.S)
 CAPS = {"qa": 600, "overview": 800, "summary": 300, "seed": 3000}
-CALLS = []  # (model, prompt_tokens, completion_tokens); tests read this to count calls
 
 
 def models():
@@ -35,9 +34,7 @@ def chat(messages, kind="qa", model=None):
     resp = client().chat.completions.create(
         model=model, messages=messages, max_tokens=CAPS[kind], temperature=0.9 if kind == "seed" else 0.2,
         **({"reasoning_effort": effort} if effort else {}))
-    u = resp.usage
-    CALLS.append((model, getattr(u, "prompt_tokens", 0), getattr(u, "completion_tokens", 0)))
-    return clean(resp.choices[0].message.content), u
+    return clean(resp.choices[0].message.content), resp.usage
 
 
 def chat_with_fallback(messages, kind="qa", ok=lambda text: True):

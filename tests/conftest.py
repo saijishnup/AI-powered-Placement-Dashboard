@@ -1,4 +1,5 @@
 """Shared fixtures: a throwaway SQLite DB and a fake LLM. No real DB, no network."""
+import os
 import sys
 from datetime import date, timedelta
 from pathlib import Path
@@ -8,6 +9,8 @@ import pytest
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 
 from lib import db, llm  # noqa: E402
+
+os.environ["ADMINS"] = ""  # page tests open the tracked DB: never seed real admins into it
 
 RECENT = (date.today() - timedelta(days=30)).isoformat()
 OLD = (date.today() - timedelta(days=3 * 365)).isoformat()

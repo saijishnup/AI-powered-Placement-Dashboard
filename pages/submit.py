@@ -1,21 +1,13 @@
 """Submit review: grouped form -> validate -> insert (marks company + department overview dirty)."""
-import re
-
 import streamlit as st
 
 from lib import db, ui
 
-LINKEDIN_RE = re.compile(r"^https://(www\.)?linkedin\.com/\S+$")
 OTHER = "Other (type below)"
 BATCHES = [2024, 2025, 2026, 2027, 2028]
 MIN_SELECTION = 40
-TEXTS = [("selection", "Selection procedure", "Round 1, round 2, what was asked in each"),
-         ("preparation", "Way of preparation", "Resources, sheets, how long"),
-         ("experience", "Overall experience", "Interviewers, process, work"),
-         ("advice", "Advice for the company", "What this company looks for"),
-         ("tips", "General tips", "Anything for the season in general")]
 KEYS = ["name", "department", "batch", "cgpa", "linkedin", "consent", "outcome", "company", "company_other",
-        "job_profile", "location", "pay", "rounds", "tags"] + [k for k, *_ in TEXTS]
+        "job_profile", "location", "pay", "rounds", "tags"] + [k for k, *_ in ui.TEXTS]
 
 conn = ui.conn()
 s = st.session_state
@@ -84,10 +76,10 @@ with st.form("submit_review", border=False, enter_to_submit=False):
 
     with st.container(border=True):
         section("Experience", "Write like you are telling a junior. Rough is fine.")
-        key, label, ph = TEXTS[0]
+        key, label, ph = ui.TEXTS[0]
         st.text_area(label, key=f"sub_{key}", placeholder=ph, height=160, max_chars=5000)
         cols = st.columns(2)
-        for i, (key, label, ph) in enumerate(TEXTS[1:]):
+        for i, (key, label, ph) in enumerate(ui.TEXTS[1:]):
             with cols[i % 2]:
                 st.text_area(label, key=f"sub_{key}", placeholder=ph, height=130, max_chars=5000)
 
@@ -97,33 +89,24 @@ with st.form("submit_review", border=False, enter_to_submit=False):
 
 
 def validate(v):
-    e = {}
-    if len(v["name"]) < 2:
-        e["name"] = "Enter your name."
-    if not v["department"]:
-        e["department"] = "Pick your department."
-    if not v["batch"]:
-        e["batch"] = "Pick your batch."
-    if v["cgpa"] is None:
-        e["cgpa"] = "Enter your CGPA (0 to 10)."
-    if v["linkedin"] and not LINKEDIN_RE.match(v["linkedin"]):
-        e["linkedin"] = "Use the full profile link, for example https://www.linkedin.com/in/your-handle"
-    if not v["company"]:
-        e["company"] = "Pick a company, or Other."
-    elif v["company"] == OTHER and len(v["company_other"]) < 2:
-        e["company_other"] = "Type the company name."
-    if len(v["job_profile"]) < 2:
-        e["job_profile"] = "Enter the job profile."
-    if v["rounds"] is None:
-        e["rounds"] = "Enter the number of rounds."
-    if len(v["selection"]) < MIN_SELECTION:
-        e["selection"] = f"Describe the rounds in at least {MIN_SELECTION} characters ({len(v['selection'])} now)."
-    return e
+    checks = [("name", len(v["name"]) < 2, "Enter your name."),
+              ("department", not v["department"], "Pick your department."),
+              ("batch", not v["batch"], "Pick your batch."),
+              ("cgpa", v["cgpa"] is None, "Enter your CGPA (0 to 10)."),
+              ("linkedin", v["linkedin"] and not ui.LINKEDIN_RE.match(v["linkedin"]),
+               "Use the full profile link, for example https://www.linkedin.com/in/your-handle"),
+              ("company", not v["company"], "Pick a company, or Other."),
+              ("company_other", v["company"] == OTHER and len(v["company_other"]) < 2, "Type the company name."),
+              ("job_profile", len(v["job_profile"]) < 2, "Enter the job profile."),
+              ("rounds", v["rounds"] is None, "Enter the number of rounds."),
+              ("selection", len(v["selection"]) < MIN_SELECTION,
+               f"Describe the rounds in at least {MIN_SELECTION} characters ({len(v['selection'])} now).")]
+    return {k: m for k, bad, m in checks if bad}
 
 
 if sent:
     v = {k: s.get(f"sub_{k}") for k in KEYS}
-    for k in ("name", "linkedin", "company_other", "job_profile", "location") + tuple(k for k, *_ in TEXTS):
+    for k in ("name", "linkedin", "company_other", "job_profile", "location") + tuple(k for k, *_ in ui.TEXTS):
         v[k] = (v[k] or "").strip()
     s.sub_errs = validate(v)
     if not s.sub_errs:
@@ -137,7 +120,7 @@ if sent:
             "linkedin": v["linkedin"] or None, "department": v["department"], "batch_year": int(v["batch"]),
             "cgpa": round(float(v["cgpa"]), 2), "type": rtype, "outcome": outcome, "job_profile": v["job_profile"],
             "job_location": v["location"] or None, "pay": v["pay"], "rounds": int(v["rounds"]),
-            "tags": ",".join(v["tags"] or []), **{k: v[k] or None for k, *_ in TEXTS}, "is_seed": 0, "approved": 0})
+            "tags": ",".join(v["tags"] or []), **{k: v[k] or None for k, *_ in ui.TEXTS}, "is_seed": 0, "approved": 0})
         for k in KEYS:  # reset the form for the next review
             s.pop(f"sub_{k}", None)
         s.sub_new_id = new_id

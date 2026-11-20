@@ -1,17 +1,13 @@
 """Review detail: header meta -> AI review summary -> written sections. Name/email never shown here."""
 import html
-import re
 from datetime import datetime
 
 import streamlit as st
 
 from lib import db, qa, ui
 
-SECTIONS = [("selection", "Selection procedure"), ("preparation", "Way of preparation"),
-            ("experience", "Overall experience"), ("advice", "Advice for the company"), ("tips", "General tips")]
 # Characters markdown/Streamlit would interpret (links, emphasis, math, emoji shortcodes) -> HTML entities.
 _MD = {c: f"&#{ord(c)};" for c in "[]()*_`#>|~$\\:!{}"}
-LINKEDIN_RE = re.compile(r"^https://(www\.)?linkedin\.com/\S+$")
 
 
 def safe_text(text):
@@ -57,7 +53,7 @@ tags += f'<span class="pd-muted pd-num">R{row["id"]} &middot; Posted {posted}</s
 
 link = row.get("linkedin") or ""
 linkedin = (f'<a href="{html.escape(link, quote=True)}" target="_blank" rel="noopener noreferrer nofollow">'
-            f'View profile</a>' if LINKEDIN_RE.match(link) else "-")
+            f'View profile</a>' if ui.LINKEDIN_RE.match(link) else "-")
 cgpa = f"{row['cgpa']:.2f}" if row["cgpa"] is not None else "-"
 meta = [("Company", e(row["company"])), ("LinkedIn", linkedin), ("Department", e(row["department"])),
         ("Batch", f'<span class="pd-num">{e(row["batch_year"])}</span>'),
@@ -78,7 +74,7 @@ ui.ai_card("AI review summary", [html.escape(b) for b in bullets or [note]],
            "Auto summary" + (f" · {note.lower()}" if bullets else ""))
 
 # ---------- written sections ----------
-for col, label in SECTIONS:
+for col, label, _ in ui.TEXTS:
     text = (row.get(col) or "").strip()
     if not text:
         continue
