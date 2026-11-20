@@ -29,7 +29,7 @@ if not email:
     st.stop()
 
 if "sub_new_id" in s:
-    st.success("Review posted. It is on the dashboard now.")
+    st.success("Review posted. It shows on the dashboard once an admin approves it.")
     if st.button("View your review", type="primary"):
         ui.open_review(s.pop("sub_new_id"))
 
@@ -137,7 +137,7 @@ if sent:
             "linkedin": v["linkedin"] or None, "department": v["department"], "batch_year": int(v["batch"]),
             "cgpa": round(float(v["cgpa"]), 2), "type": rtype, "outcome": outcome, "job_profile": v["job_profile"],
             "job_location": v["location"] or None, "pay": v["pay"], "rounds": int(v["rounds"]),
-            "tags": ",".join(v["tags"] or []), **{k: v[k] or None for k, *_ in TEXTS}, "is_seed": 0})
+            "tags": ",".join(v["tags"] or []), **{k: v[k] or None for k, *_ in TEXTS}, "is_seed": 0, "approved": 0})
         for k in KEYS:  # reset the form for the next review
             s.pop(f"sub_{k}", None)
         s.sub_new_id = new_id

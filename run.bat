@@ -21,7 +21,7 @@ if errorlevel 1 (
 
 if not exist .venv\Scripts\python.exe (
   echo First run: creating .venv and installing requirements...
-  py -3 -m venv .venv || python -m venv .venv
+  py -3.12 -m venv .venv || python -m venv .venv
   .venv\Scripts\python -m pip install -q -r requirements.txt
 )
 

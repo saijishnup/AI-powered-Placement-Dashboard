@@ -3,12 +3,8 @@ LLM_MODEL is a comma list tried in order: each model gets one retry (error or fa
 import os
 import re
 from functools import cache
-from pathlib import Path
 
-from dotenv import load_dotenv
 from openai import OpenAI
-
-load_dotenv(Path(__file__).resolve().parent.parent / ".env")
 
 THINK_RE = re.compile(r"<think>.*?</think>|^.*?</think>", re.S)
 CAPS = {"qa": 600, "overview": 800, "summary": 300, "seed": 3000}

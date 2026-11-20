@@ -48,3 +48,30 @@ def test_insert_review_marks_company_and_department_dirty(conn):
     make_review(conn, company="Acme", department="ECE")
     assert db.get_cache(conn, "company", "Acme")["dirty"] == 1
     assert db.get_cache(conn, "department", "ECE")["dirty"] == 1
+
+
+def test_admins_add_remove_never_last(conn):
+    for e in db.admins(conn):  # start clean: drop seeded ADMINS
+        conn.execute("DELETE FROM admins WHERE email = ?", (e,))
+    db.set_admin(conn, "A@nitk.edu.in", True)
+    db.set_admin(conn, "b@gmail.com", True)
+    assert db.is_admin(conn, "a@nitk.edu.in") and db.admins(conn) == ["a@nitk.edu.in", "b@gmail.com"]
+    db.set_admin(conn, "a@nitk.edu.in", False)  # removing yourself is allowed
+    db.set_admin(conn, "b@gmail.com", False)  # last admin stays
+    assert db.admins(conn) == ["b@gmail.com"]
+
+
+def test_ask_limit_counts_per_user_per_day(conn):
+    for _ in range(3):
+        db.log_ask(conn, "x@nitk.edu.in")
+    assert db.asks_today(conn, "x@nitk.edu.in") == 3 and db.asks_today(conn, "y@nitk.edu.in") == 0
+
+
+def test_pending_review_hidden_until_approved_and_delete_dirties(conn):
+    rid = make_review(conn, approved=0, selection="pending kafka round")
+    assert rid not in set(db.query_reviews(conn)["id"]) and not db.search_fts(conn, "kafka")
+    db.set_cache(conn, "company", "Acme", "{}")
+    db.moderate(conn, rid, True)
+    assert rid in set(db.query_reviews(conn)["id"]) and db.get_cache(conn, "company", "Acme")["dirty"] == 1
+    db.moderate(conn, rid, False)
+    assert db.get_review(conn, rid) is None

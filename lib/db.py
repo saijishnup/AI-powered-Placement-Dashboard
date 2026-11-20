@@ -1,7 +1,8 @@
 """SQLite access. All reads apply the 2-year window here, nowhere else.
-Tables are plain SQL (CHECK constraints); sqlite-utils builds the FTS index + sync triggers and does inserts/upserts."""
+Plain SQL (works on sqlite3 and libsql/Turso); sqlite-utils only builds the FTS index + sync triggers on a fresh DB."""
+import os
 import sqlite3
-from datetime import date, datetime
+from datetime import date
 from pathlib import Path
 
 import pandas as pd
@@ -29,33 +30,48 @@ CREATE TABLE IF NOT EXISTS reviews(
   pay REAL,                 -- LPA for placement, INR k/month for internship
   rounds INTEGER, tags TEXT,
   selection TEXT, preparation TEXT, experience TEXT, advice TEXT, tips TEXT,
-  ai_summary TEXT, is_seed INTEGER DEFAULT 0, created_at TEXT NOT NULL);
+  ai_summary TEXT, is_seed INTEGER DEFAULT 0, created_at TEXT NOT NULL,
+  approved INTEGER DEFAULT 1);  -- student submissions start at 0 until an admin approves
 
 CREATE TABLE IF NOT EXISTS overview_cache(
   scope TEXT, key TEXT, content TEXT, dirty INTEGER DEFAULT 1, updated_at TEXT,
   PRIMARY KEY(scope, key));
+
+CREATE TABLE IF NOT EXISTS admins(email TEXT PRIMARY KEY);
+CREATE TABLE IF NOT EXISTS asks(email TEXT, at TEXT);  -- one row per Ask AI call (daily limit)
 """
 
 
 def connect(path=DB_PATH):
+    """Local SQLite file, or a Turso embedded replica when TURSO_URL is set (reads stay local, writes go to Turso)."""
     Path(path).parent.mkdir(parents=True, exist_ok=True)
-    conn = sqlite3.connect(path, check_same_thread=False)
-    conn.row_factory = sqlite3.Row
+    if os.getenv("TURSO_URL"):
+        import libsql  # only needed when hosted
+        conn = libsql.connect(str(Path(path).with_name("replica.db")), sync_url=os.environ["TURSO_URL"],
+                              auth_token=os.getenv("TURSO_TOKEN", ""))
+        conn.sync()
+    else:
+        conn = sqlite3.connect(path, check_same_thread=False)
     conn.execute("PRAGMA foreign_keys = ON")
     conn.executescript(SCHEMA)
-    if "reviews_fts" not in sqlite_utils.Database(conn).table_names():
-        _t(conn, "reviews").enable_fts(FTS_COLS, create_triggers=True)
+    if not conn.execute("SELECT 1 FROM sqlite_master WHERE name = 'reviews_fts'").fetchone():
+        sqlite_utils.Database(conn)["reviews"].enable_fts(FTS_COLS, create_triggers=True)
+    if not conn.execute("SELECT 1 FROM admins").fetchone():  # first run: seed admins from ADMINS
+        conn.executemany("INSERT INTO admins VALUES (?)", [(e.strip().lower(),) for e in os.getenv("ADMINS", "").split(",") if e.strip()])
+        conn.commit()
     return conn
 
 
-def _t(conn, name):
-    return sqlite_utils.Database(conn)[name]
+def _dicts(cur):
+    """Rows as dicts (libsql has no row_factory)."""
+    cols = [d[0] for d in cur.description]
+    return [dict(zip(cols, r)) for r in cur.fetchall()]
 
 
 def _where(filters):
     """Build WHERE clause + params from the shared filters dict."""
     f = filters or {}
-    sql, p = [WINDOW], []
+    sql, p = [WINDOW, "r.approved = 1"], []
     if f.get("type"):
         sql.append("r.type = ?"); p.append(f["type"])
     for key, col in (("departments", "r.department"), ("batches", "r.batch_year"), ("tiers", "c.tier")):
@@ -83,9 +99,8 @@ def query_reviews(conn, filters=None):
 
 
 def get_review(conn, review_id):
-    row = conn.execute(f"SELECT r.*, c.name AS company, c.tier, c.sector {BASE} WHERE r.id = ?",
-                       (review_id,)).fetchone()
-    return dict(row) if row else None
+    rows = _dicts(conn.execute(f"SELECT r.*, c.name AS company, c.tier, c.sector {BASE} WHERE r.id = ?", (review_id,)))
+    return rows[0] if rows else None
 
 
 def list_companies(conn):
@@ -94,12 +109,15 @@ def list_companies(conn):
 
 def company_id(conn, name, tier="Normal", sector=None):
     """Return id for a company name, creating it if new (submit form 'other')."""
-    return _t(conn, "companies").lookup({"name": name}, {"tier": tier, "sector": sector})
+    conn.execute("INSERT OR IGNORE INTO companies(name, tier, sector) VALUES (?, ?, ?)", (name, tier, sector))
+    return conn.execute("SELECT id FROM companies WHERE name = ?", (name,)).fetchone()[0]
 
 
 def insert_review(conn, data):
-    rid = _t(conn, "reviews").insert({"created_at": date.today().isoformat(), **data}).last_pk
-    mark_dirty(conn, "company", _t(conn, "companies").get(data["company_id"])["name"])
+    data = {"created_at": date.today().isoformat(), **data}  # keys come from our code, never from users
+    rid = conn.execute(f"INSERT INTO reviews({','.join(data)}) VALUES ({','.join('?' * len(data))})",
+                       list(data.values())).lastrowid
+    mark_dirty(conn, "company", conn.execute("SELECT name FROM companies WHERE id = ?", (data["company_id"],)).fetchone()[0])
     mark_dirty(conn, "department", data["department"])
     conn.commit()
     return rid
@@ -114,24 +132,76 @@ def search_fts(conn, q, filters=None, k=8):
         return []
     match = " OR ".join(f'"{w}"' for w in words)
     where, p = _where(filters)
-    rows = conn.execute(
+    return _dicts(conn.execute(
         f"SELECT r.*, c.name AS company, c.tier {BASE} JOIN reviews_fts f ON f.rowid = r.id "
         f"WHERE reviews_fts MATCH ? AND {where} ORDER BY bm25(reviews_fts) LIMIT ?",
-        [match, *p, k]).fetchall()
-    return [dict(r) for r in rows]
+        [match, *p, k]))
 
 
 def get_cache(conn, scope, key):
-    row = conn.execute("SELECT content, dirty FROM overview_cache WHERE scope=? AND key=?",
-                       (scope, key)).fetchone()
-    return dict(row) if row else None
+    rows = _dicts(conn.execute("SELECT content, dirty FROM overview_cache WHERE scope=? AND key=?", (scope, key)))
+    return rows[0] if rows else None
 
 
 def set_cache(conn, scope, key, content):
-    _t(conn, "overview_cache").upsert({"scope": scope, "key": key, "content": content, "dirty": 0,
-                                       "updated_at": datetime.now().isoformat(" ", "seconds")}, pk=("scope", "key"))
+    conn.execute("INSERT INTO overview_cache VALUES (?, ?, ?, 0, datetime('now', 'localtime')) ON CONFLICT(scope, key) "
+                 "DO UPDATE SET content = excluded.content, dirty = 0, updated_at = excluded.updated_at", (scope, key, content))
     conn.commit()
 
 
 def mark_dirty(conn, scope, key):
-    _t(conn, "overview_cache").upsert({"scope": scope, "key": key, "dirty": 1}, pk=("scope", "key"))
+    conn.execute("INSERT INTO overview_cache(scope, key) VALUES (?, ?) ON CONFLICT(scope, key) DO UPDATE SET dirty = 1",
+                 (scope, key))
+
+
+# ---------- admins, Ask AI limit, moderation ----------
+def admins(conn):
+    return [r[0] for r in conn.execute("SELECT email FROM admins ORDER BY email").fetchall()]
+
+
+def is_admin(conn, email):
+    return email.lower() in admins(conn)
+
+
+def set_admin(conn, email, on):
+    """Add or remove an admin. Never removes the last one (no lock-out)."""
+    if on:
+        conn.execute("INSERT OR IGNORE INTO admins VALUES (?)", (email.lower(),))
+    elif len(admins(conn)) > 1:
+        conn.execute("DELETE FROM admins WHERE email = ?", (email.lower(),))
+    conn.commit()
+
+
+def asks_today(conn, email):
+    return conn.execute("SELECT count(*) FROM asks WHERE email = ? AND at >= date('now')", (email,)).fetchone()[0]
+
+
+def log_ask(conn, email):
+    conn.execute("INSERT INTO asks VALUES (?, datetime('now'))", (email,))
+    conn.commit()
+
+
+def usage_today(conn):
+    return pd.read_sql_query("SELECT email, count(*) AS asks FROM asks WHERE at >= date('now') "
+                             "GROUP BY email ORDER BY asks DESC", conn)
+
+
+def submissions(conn, limit=50):
+    """Student-written reviews (not seed), newest first, approved or not."""
+    return pd.read_sql_query(f"SELECT r.*, c.name AS company {BASE} WHERE r.is_seed = 0 "
+                             "ORDER BY r.approved, r.id DESC LIMIT ?", conn, params=[limit])
+
+
+def moderate(conn, review_id, approve):
+    """Approve (show it) or delete a review; either way its overviews regenerate."""
+    row = get_review(conn, review_id)
+    conn.execute("UPDATE reviews SET approved = 1 WHERE id = ?" if approve else "DELETE FROM reviews WHERE id = ?",
+                 (review_id,))
+    mark_dirty(conn, "company", row["company"])
+    mark_dirty(conn, "department", row["department"])
+    conn.commit()
+
+
+def reset_overviews(conn):
+    conn.execute("UPDATE overview_cache SET dirty = 1")
+    conn.commit()

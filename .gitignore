@@ -1,6 +1,6 @@
 # secrets and local env
 .env
-.venv/
+.venv*/
 __pycache__/
 *.pyc
 .pytest_cache/
@@ -11,3 +11,5 @@ memory/
 docs/
 .claude/
 *.zip
+.streamlit/secrets.toml
+data/replica.db*

@@ -1,6 +1,10 @@
+import os
+
 import streamlit as st
 
-from lib import qa, ui
+from lib import db, qa, ui
+
+LIMIT = int(os.getenv("ASK_DAILY_LIMIT", "20"))
 
 conn = ui.conn()
 ui.setup("Ask AI", "Answers come only from stored reviews in the last 2 years, with [R#] citations. "
@@ -29,8 +33,13 @@ question = (q or "").strip()
 if (go or st.session_state.pop("ask_go", False)) and question:
     key = (question, repr(sorted(f.items())))
     if st.session_state.get("ask_key") != key:  # same question + filters: reuse, no second LLM call
+        email = st.session_state.get("email", "")
+        if db.asks_today(conn, email) >= LIMIT:
+            st.warning(f"Daily limit reached: {LIMIT} questions per day. Try again tomorrow.")
+            st.stop()
         with st.spinner("Reading reviews..."):
             st.session_state.ask_res = qa.answer(conn, question, f)
+        db.log_ask(conn, email)
         st.session_state.ask_key = key if st.session_state.ask_res.get("text") else None  # failures retry
 
 res = st.session_state.get("ask_res")

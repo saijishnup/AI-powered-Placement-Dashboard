@@ -1,4 +1,6 @@
 streamlit>=1.46   # UI; 1.46+ needed for light/dark theme sections in config.toml
+Authlib           # Google login via st.login (OIDC)
+libsql            # Turso embedded replica when hosted (TURSO_URL); needs Python 3.12
 plotly            # interactive charts
 pandas            # dataframes for charts/tables (streamlit dep anyway)
 openai            # client for any OpenAI-compatible endpoint (OmniRoute gateway; OpenRouter for the demo later)
