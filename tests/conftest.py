@@ -7,10 +7,10 @@ from pathlib import Path
 import pytest
 
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
+os.environ["ADMINS"] = ""  # page tests open the tracked DB: never seed real admins into it
+os.environ["TURSO_URL"] = ""  # set before lib loads .env: tests must never touch the hosted DB
 
 from lib import db, llm  # noqa: E402
-
-os.environ["ADMINS"] = ""  # page tests open the tracked DB: never seed real admins into it
 
 RECENT = (date.today() - timedelta(days=30)).isoformat()
 OLD = (date.today() - timedelta(days=3 * 365)).isoformat()

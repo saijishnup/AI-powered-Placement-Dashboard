@@ -49,7 +49,7 @@ def test_ask_blocked_at_daily_limit_without_llm_call():
 @pytest.mark.parametrize("email,admin,ok", [("x.cs26@nitk.edu.in", False, True), ("x@gmail.com", False, False),
                                             ("x@gmail.com", True, True)])
 def test_demo_login_accepts_nitk_or_admin_only(email, admin, ok):
-    with mock.patch("lib.db.is_admin", return_value=admin):
+    with mock.patch("lib.db.is_admin", return_value=admin), mock.patch("streamlit.secrets", {}):  # demo form, even with [auth] set
         at = AppTest.from_file(str(ROOT / "app.py"), default_timeout=60).run()
         at.text_input[0].input(email)
         at.button[0].click()
