@@ -6,6 +6,8 @@
 
 *Every senior's interview, one search away.*
 
+**Live:** [ai-powered-placement-dashboard.streamlit.app](https://ai-powered-placement-dashboard.streamlit.app) (NITK Google login; Ask AI works while the maintainer's AI gateway is online)
+
 <p align="center">
   <a href="#run"><img src="https://img.shields.io/badge/python-3.12-f6f5f3?style=flat-square&labelColor=1c1b19" alt="Python 3.12" /></a>
   <a href="https://streamlit.io/"><img src="https://img.shields.io/badge/streamlit-1.67-e7e5e1?style=flat-square&labelColor=1c1b19" alt="Streamlit 1.67" /></a>

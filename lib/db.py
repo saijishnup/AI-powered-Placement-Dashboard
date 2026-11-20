@@ -50,7 +50,7 @@ def connect(path=DB_PATH):
         import libsql  # only needed when hosted
         warnings.filterwarnings("ignore", "pandas only supports")  # pandas reads libsql fine, it just warns
         conn = libsql.connect(str(Path(path).with_name("replica.db")), sync_url=os.environ["TURSO_URL"],
-                              auth_token=os.getenv("TURSO_TOKEN", ""))
+                              auth_token=os.getenv("TURSO_TOKEN", ""), sync_interval=60)  # pull outside edits each minute
         conn.sync()
     else:
         conn = sqlite3.connect(path, check_same_thread=False)
