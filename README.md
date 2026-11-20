@@ -7,7 +7,6 @@
 *Every interview review, at a glance.*
 
 **Live:** [ai-powered-placement-dashboard.streamlit.app](https://ai-powered-placement-dashboard.streamlit.app)  
-Note: currently only `@nitk.edu.in` Google login; Ask AI works while the maintainer's AI gateway is online.
 
 <p align="center">
   <a href="#run"><img src="https://img.shields.io/badge/python-3.12-f6f5f3?style=flat-square&labelColor=1c1b19" alt="Python 3.12" /></a>
@@ -23,8 +22,8 @@ Note: currently only `@nitk.edu.in` Google login; Ask AI works while the maintai
 
 A placement and internship review dashboard for B.Tech students. Seniors post how their interviews went; juniors browse stats, read company and department overviews, and ask questions that an AI answers **only from those reviews**, with a citation on every claim.
 
-The current version is set up for my university (NITK): its email domain and Google login. None of this is sensitive data, and no other sensitive data or real reviews are used.
-
+The current version is set up for my university (NITK): its email domain and Google login. None of this is sensitive data, and no other sensitive data or real reviews are used.  
+Note: currently only `@nitk.edu.in` Google login; Ask AI works while the maintainer's AI gateway is online.
 <p align="center">
   <img src="assets/screenshots/dashboard.png" alt="Dashboard" width="860" />
 </p>
