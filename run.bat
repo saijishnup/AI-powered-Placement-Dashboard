@@ -19,6 +19,15 @@ if errorlevel 1 (
   )
 )
 
+netstat -ano | findstr "127.0.0.1:4040" | findstr LISTENING >nul
+if errorlevel 1 (
+  if exist "%LOCALAPPDATA%\ngrok\ngrok.exe" (
+    start "ngrok" /min "%LOCALAPPDATA%\ngrok\ngrok.exe" http --url=uniformed-finishing-subtotal.ngrok-free.dev 127.0.0.1:20128 --traffic-policy-file docs\ngrok-policy.yml
+  ) else (
+    echo ngrok not found: hosted Ask AI is offline.
+  )
+)
+
 if not exist .venv\Scripts\python.exe (
   echo First run: creating .venv and installing requirements...
   py -3.12 -m venv .venv || python -m venv .venv
