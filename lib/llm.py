@@ -7,7 +7,7 @@ from functools import cache
 from openai import OpenAI
 
 THINK_RE = re.compile(r"<think>.*?</think>|^.*?</think>", re.S)
-CAPS = {"qa": 600, "overview": 800, "summary": 300, "seed": 3000}
+CAPS = {"qa": 600, "overview": 800, "summary": 300}
 
 
 def models():
@@ -32,7 +32,7 @@ def chat(messages, kind="qa", model=None):
     model, _, effort = (model or models()[0]).partition("@")
     effort = effort or os.getenv("LLM_REASONING_EFFORT")  # optional: only sent when set
     resp = client().chat.completions.create(
-        model=model, messages=messages, max_tokens=CAPS[kind], temperature=0.9 if kind == "seed" else 0.2,
+        model=model, messages=messages, max_tokens=CAPS[kind], temperature=0.2,
         **({"reasoning_effort": effort} if effort else {}))
     return clean(resp.choices[0].message.content), resp.usage
 

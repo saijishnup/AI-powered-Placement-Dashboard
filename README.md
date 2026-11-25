@@ -60,7 +60,7 @@ Instructions hidden inside a review ("ignore previous instructions...") are trea
 
 ## Run
 
-Needs Python 3.12. **One click:** double-click `run.bat`. On first run it makes `.venv`, installs requirements and opens `.env` for your key. It starts OmniRoute if it is installed, then opens the app at http://localhost:8501.
+Needs Python 3.12. **One click:** double-click `run.bat`. On first run it makes `.venv`, installs requirements and opens `.env` for your key. It starts OmniRoute and the ngrok tunnel (for the hosted Ask AI) if they are installed, then opens the app at http://localhost:8501. Close their windows to stop them.
 
 **By hand:**
 
